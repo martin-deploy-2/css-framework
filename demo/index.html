@@ -14,9 +14,7 @@
         line-height: 18px;
         font-weight: 500;
 
-        padding: 400px;
-        background-color: #ddd;
-        color: black;
+        padding: 200px;
       }
 
       body > * {
@@ -25,13 +23,19 @@
 
       .Radiocard,
       .Checkcard {
+        --COLOR_TEXT: var(--COLOR_INTERACTIVE_BLURRED_TEXT);
+        --COLOR_FILL: var(--COLOR_INTERACTIVE_BLURRED_FILL);
+        --COLOR_STROKE: var(--COLOR_INTERACTIVE_BLURRED_STROKE);
+
         position: relative;
         display: block;
         padding: var(--SPACING_VERTICAL) var(--SPACING_HORIZONTAL) var(--SPACING_VERTICAL) calc(var(--SPACING_HORIZONTAL) * 2 + 16px);
-        min-width: calc(var(--SPACING_HORIZONTAL) * 2 + 16px + 1px);
-        min-height: calc(var(--SPACING_VERTICAL) * 2 + 16px + 1px);
-        border: 1px solid black;
-        box-shadow: 0 0 0 4px #aaa;
+        min-width: calc(var(--SPACING_HORIZONTAL) * 2 + var(--STROKE_WIDTH) * 2 + 16px);
+        min-height: calc(var(--SPACING_VERTICAL) * 2 + var(--STROKE_WIDTH) * 2 + 16px);
+        color: var(--COLOR_TEXT);
+        border: var(--STROKE_WIDTH) solid var(--COLOR_STROKE);
+        background: var(--COLOR_FILL);
+        box-shadow: 0 0 0 var(--INTERACTIVE_SHADOW_WIDTH) var(--COLOR_INTERACTIVE_SHADOW);
         cursor: pointer;
       }
 
@@ -41,12 +45,16 @@
 
       input[type="radio"].Radiobox,
       input[type="checkbox"].Checkbox {
+        --COLOR_TEXT: var(--COLOR_INTERACTIVE_BLURRED_TEXT);
+        --COLOR_FILL: var(--COLOR_INTERACTIVE_BLURRED_FILL);
+        --COLOR_STROKE: var(--COLOR_INTERACTIVE_BLURRED_STROKE);
+
         display: block;
         appearance: none;
         width: 16px;
         height: 16px;
-        background-color: black;
-        box-shadow: 0 0 0 4px #aaa;
+        background-color: var(--COLOR_STROKE);
+        box-shadow: 0 0 0 var(--INTERACTIVE_SHADOW_WIDTH) var(--COLOR_INTERACTIVE_SHADOW);
         cursor: pointer;
       }
 
@@ -62,20 +70,8 @@
         appearance: none;
         width: 16px;
         height: 16px;
-        background-color: black;
+        background-color: var(--COLOR_STROKE);
         cursor: pointer;
-      }
-
-      input[type="radio"].Radiobox:hover,
-      input[type="radio"].Radiobox:focus,
-      .Radiocard:hover,
-      .Radiocard:focus-within,
-      input[type="checkbox"].Checkbox:hover,
-      input[type="checkbox"].Checkbox:focus,
-      .Checkcard:hover,
-      .Checkcard:focus-within {
-        outline: 2px dashed black;
-        outline-offset: 2px;
       }
 
       input[type="checkbox"].Checkbox:checked::before,
@@ -99,12 +95,39 @@
       input[type="checkbox"].Checkbox:indeterminate::before,
       .Checkcard > input[type="checkbox"]:checked::before,
       .Checkcard > input[type="checkbox"]:indeterminate::before {
-        color: white;
-        line-height: 16px;
-        font-size: 12px;
         display: block;
         width: 100%;
+        line-height: 16px;
+        font-size: 12px;
         text-align: center;
+        color: var(--COLOR_FILL);
+      }
+
+      input[type="radio"].Radiobox:hover,
+      input[type="radio"].Radiobox:focus,
+      .Radiocard:hover,
+      .Radiocard:focus-within,
+      input[type="checkbox"].Checkbox:hover,
+      input[type="checkbox"].Checkbox:focus,
+      .Checkcard:hover,
+      .Checkcard:focus-within {
+        --COLOR_TEXT: var(--COLOR_INTERACTIVE_FOCUSED_TEXT);
+        --COLOR_FILL: var(--COLOR_INTERACTIVE_FOCUSED_FILL);
+        --COLOR_STROKE: var(--COLOR_INTERACTIVE_FOCUSED_STROKE);
+
+        outline: var(--INTERACTIVE_OUTLINE_WIDTH) dashed var(--COLOR_INTERACTIVE_OUTLINE);
+        outline-offset: var(--INTERACTIVE_OUTLINE_OFFSET);
+      }
+
+      .Radiocard:has(> input[type="radio"]:active),
+      .Checkcard:has(> input[type="checkbox"]:active),
+      input[type="radio"].Radiobox:active,
+      .Radiocard > input[type="radio"]:active,
+      input[type="checkbox"].Checkbox:active,
+      .Checkcard > input[type="checkbox"]:active {
+        --COLOR_TEXT: var(--COLOR_INTERACTIVE_PRESSED_TEXT);
+        --COLOR_FILL: var(--COLOR_INTERACTIVE_PRESSED_FILL);
+        --COLOR_STROKE: var(--COLOR_INTERACTIVE_PRESSED_STROKE);
       }
 
     </style>
@@ -114,7 +137,7 @@
     <label class="Checkcard">
       <input type="checkbox"/>
       <span>Enable lorem ipsum</span>
-      <span style="display: block; margin-top: var(--SPACING_VERTICAL); opacity: 80%;">
+      <span style="display: block; margin-top: var(--SPACING_VERTICAL);">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
         recusandae pariatur magni, facilis reiciendis iusto. Tenetur ipsum quam
         blanditiis accusantium eius laudantium laborum error illo consectetur.
@@ -136,7 +159,7 @@
     <label class="Radiocard">
       <input type="radio" name="09c342d8"/>
       <span>Enable lorem ipsum</span>
-      <span style="display: block; margin-top: var(--SPACING_VERTICAL); opacity: 80%;">
+      <span style="display: block; margin-top: var(--SPACING_VERTICAL);">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
         recusandae pariatur magni, facilis reiciendis iusto. Tenetur ipsum quam
         blanditiis accusantium eius laudantium laborum error illo consectetur.

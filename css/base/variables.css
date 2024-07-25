@@ -7,7 +7,57 @@
 }
 
 :root {
-  --BACKGROUND: black;
-  --BORDER: white;
-  --COLOR: white;
+  --STROKE_UNIT: 1px;
+  --STROKE_FACTOR: 1;
+  --STROKE_WIDTH: calc(var(--STROKE_UNIT) * var(--STROKE_FACTOR));
+
+  --INTERACTIVE_SHADOW_UNIT: 1px;
+  --INTERACTIVE_SHADOW_FACTOR: 2;
+  --INTERACTIVE_SHADOW_WIDTH: calc(var(--INTERACTIVE_SHADOW_UNIT) * var(--INTERACTIVE_SHADOW_FACTOR) + var(--INTERACTIVE_OUTLINE_WIDTH));
+
+  --INTERACTIVE_OUTLINE_UNIT: 1px;
+  --INTERACTIVE_OUTLINE_FACTOR: 2;
+  --INTERACTIVE_OUTLINE_WIDTH: calc(var(--INTERACTIVE_OUTLINE_UNIT) * var(--INTERACTIVE_OUTLINE_FACTOR));
+  --INTERACTIVE_OUTLINE_OFFSET: calc(var(--INTERACTIVE_SHADOW_UNIT) * var(--INTERACTIVE_SHADOW_FACTOR));
 }
+
+:root {
+  --COLOR_INTERACTIVE_OUTLINE: #111;
+  --COLOR_INTERACTIVE_SHADOW: #aaa;
+
+  --COLOR_TEXT: #111;
+  --COLOR_STROKE: #888;
+  --COLOR_FILL: #ddd;
+
+  --COLOR_INTERACTIVE_BLURRED_TEXT: #f00;
+  --COLOR_INTERACTIVE_BLURRED_STROKE: #f00;
+  --COLOR_INTERACTIVE_BLURRED_FILL: #800;
+
+  --COLOR_INTERACTIVE_FOCUSED_TEXT: #0f0;
+  --COLOR_INTERACTIVE_FOCUSED_STROKE: #0f0;
+  --COLOR_INTERACTIVE_FOCUSED_FILL: #080;
+
+  --COLOR_INTERACTIVE_PRESSED_TEXT: #00f;
+  --COLOR_INTERACTIVE_PRESSED_STROKE: #00f;
+  --COLOR_INTERACTIVE_PRESSED_FILL: #008;
+}
+
+/*
+
+passive =
+  & emphasized | normal | faded
+
+checkbox, radio =
+  & emphasized | normal | faded | disabled
+  & unchecked * indeterminate | checked
+  & blurred | focus | pressed
+
+button, link, cards(?) =
+  & emphasized | normal | faded | disabled
+  & blurred | focus | pressed
+
+input, textarea =
+  & emphasized | normal | faded | disabled
+  & blurred | focus
+
+*/

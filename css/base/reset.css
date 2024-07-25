@@ -20,8 +20,8 @@
   font-style: normal;
   text-decoration: none;
   text-align: start;
-  background: #400;
-  color: #C00;
+  background: var(--COLOR_FILL);
+  color: var(--COLOR_TEXT);
 }
 
 html {
