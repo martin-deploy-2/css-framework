@@ -1,5 +1,8 @@
 const fs = require("node:fs")
 const http = require("node:http")
+const path = require("node:path")
+
+
 
 function initHotReloadPollingClient() {
   setInterval(() => {
@@ -13,8 +16,8 @@ function initHotReloadPollingClient() {
 let fileChanged = false
 
 fs.watch(".", { recursive: true }, (event, file) => {
-  if (file) {
-    console.log(file, event)
+  if (file && (file.startsWith("demo/") || file.startsWith("css/"))) {
+    console.log(event, file)
     fileChanged = true
   }
 })
@@ -29,7 +32,15 @@ server.on("request", (request, response) => {
     return
   }
 
-  const file = request.url == "/" ? "./index.html" : "." + request.url
+  console.log(request.method, request.url)
+
+  let file = request.url == "/" ?
+    path.join(__dirname, "..", "demo", "index.html") :
+    path.join(__dirname, "..", "demo", request.url)
+
+  if (!fs.existsSync(file)) {
+    file = path.join(__dirname, "..", request.url)
+  }
 
   const ext = request.url.substring(request.url.lastIndexOf(".") + 1)
   const type =
@@ -45,7 +56,7 @@ server.on("request", (request, response) => {
       response.writeHead(500, { "Content-Type": "application/json" })
       response.end(JSON.stringify(error))
     } else {
-      if (file == "./index.html" && type == "text/html") {
+      if (type == "text/html") {
         data = data.replace(/<\/body>/i, "<script>" + initHotReloadPollingClient.toString() + ";" + initHotReloadPollingClient.name + "();</script></body>")
       }
 
