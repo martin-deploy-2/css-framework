@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Demo</title>
+    <style>
+      @import url("../css/main.css");
+      @import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+      body {
+        font-family: "Encode Sans Semi Condensed", sans-serif;
+        font-size: 16px;
+        line-height: 18px;
+        font-weight: 500;
+
+        padding: 400px;
+        background-color: #ddd;
+        color: black;
+      }
+
+      body > * {
+        margin-top: 20px;
+      }
+
+      .Radiocard,
+      .Checkcard {
+        position: relative;
+        display: block;
+        padding: var(--SPACING_VERTICAL) var(--SPACING_HORIZONTAL) var(--SPACING_VERTICAL) calc(var(--SPACING_HORIZONTAL) * 2 + 16px);
+        min-width: calc(var(--SPACING_HORIZONTAL) * 2 + 16px + 1px);
+        min-height: calc(var(--SPACING_VERTICAL) * 2 + 16px + 1px);
+        border: 1px solid black;
+        box-shadow: 0 0 0 4px #aaa;
+        cursor: pointer;
+      }
+
+      input[type="radio"].Radiobox {
+        border-radius: 50%;
+      }
+
+      input[type="radio"].Radiobox,
+      input[type="checkbox"].Checkbox {
+        display: block;
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        background-color: black;
+        box-shadow: 0 0 0 4px #aaa;
+        cursor: pointer;
+      }
+
+      .Radiocard > input[type="radio"] {
+        border-radius: 50%;
+      }
+
+      .Radiocard > input[type="radio"],
+      .Checkcard > input[type="checkbox"] {
+        position: absolute;
+        top: var(--SPACING_VERTICAL);
+        left: var(--SPACING_HORIZONTAL);
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        background-color: black;
+        cursor: pointer;
+      }
+
+      input[type="radio"].Radiobox:hover,
+      input[type="radio"].Radiobox:focus,
+      .Radiocard:hover,
+      .Radiocard:focus-within,
+      input[type="checkbox"].Checkbox:hover,
+      input[type="checkbox"].Checkbox:focus,
+      .Checkcard:hover,
+      .Checkcard:focus-within {
+        outline: 2px dashed black;
+        outline-offset: 2px;
+      }
+
+      input[type="checkbox"].Checkbox:checked::before,
+      .Checkcard > input[type="checkbox"]:checked::before {
+        content: "✔";
+      }
+
+      input[type="checkbox"].Checkbox:indeterminate::before,
+      .Checkcard > input[type="checkbox"]:indeterminate::before {
+        content: "—";
+      }
+
+      input[type="radio"].Radiobox:checked::before,
+      .Radiocard > input[type="radio"]:checked::before {
+        content: "¤";
+      }
+
+      input[type="radio"].Radiobox:checked::before,
+      .Radiocard > input[type="radio"]:checked::before,
+      input[type="checkbox"].Checkbox:checked::before,
+      input[type="checkbox"].Checkbox:indeterminate::before,
+      .Checkcard > input[type="checkbox"]:checked::before,
+      .Checkcard > input[type="checkbox"]:indeterminate::before {
+        color: white;
+        line-height: 16px;
+        font-size: 12px;
+        display: block;
+        width: 100%;
+        text-align: center;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <label class="Checkcard">
+      <input type="checkbox"/>
+      <span>Enable lorem ipsum</span>
+      <span style="display: block; margin-top: var(--SPACING_VERTICAL); opacity: 80%;">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
+        recusandae pariatur magni, facilis reiciendis iusto. Tenetur ipsum quam
+        blanditiis accusantium eius laudantium laborum error illo consectetur.
+        Quae sint enim temporibus!
+      </span>
+    </label>
+
+    <label class="Checkcard">
+      <input type="checkbox"/>
+      <span>Enable lorem ipsum</span>
+    </label>
+
+    <label class="Checkcard">
+      <input type="checkbox"/>
+    </label>
+
+    <input class="Checkbox" type="checkbox"/>
+
+    <label class="Radiocard">
+      <input type="radio" name="09c342d8"/>
+      <span>Enable lorem ipsum</span>
+      <span style="display: block; margin-top: var(--SPACING_VERTICAL); opacity: 80%;">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
+        recusandae pariatur magni, facilis reiciendis iusto. Tenetur ipsum quam
+        blanditiis accusantium eius laudantium laborum error illo consectetur.
+        Quae sint enim temporibus!
+      </span>
+    </label>
+
+    <label class="Radiocard">
+      <input type="radio" name="09c342d8"/>
+      <span>Enable lorem ipsum</span>
+    </label>
+
+    <label class="Radiocard">
+      <input type="radio" name="09c342d8"/>
+    </label>
+
+    <input class="Radiobox" type="radio" name="09c342d8"/>
+
+  </body>
+</html>

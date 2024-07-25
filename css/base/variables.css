@@ -1,0 +1,13 @@
+:root {
+  --SPACING_UNIT: 1px;
+  --SPACING_FACTOR: 9;
+  --SPACING_RATIO: calc(16/9);
+  --SPACING_HORIZONTAL: calc(var(--SPACING_UNIT) * var(--SPACING_FACTOR) * var(--SPACING_RATIO));
+  --SPACING_VERTICAL: calc(var(--SPACING_UNIT) * var(--SPACING_FACTOR));
+}
+
+:root {
+  --BACKGROUND: black;
+  --BORDER: white;
+  --COLOR: white;
+}
