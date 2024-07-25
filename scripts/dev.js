@@ -16,7 +16,8 @@ function initHotReloadPollingClient() {
 let fileChanged = false
 
 fs.watch(".", { recursive: true }, (event, file) => {
-  if (file && (file.startsWith("demo/") || file.startsWith("css/"))) {
+  console.log(event, file)
+  if (file && (file.startsWith("demo" + path.sep) || file.startsWith("css" + path.sep))) {
     console.log(event, file)
     fileChanged = true
   }
