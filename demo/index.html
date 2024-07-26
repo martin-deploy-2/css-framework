@@ -24,10 +24,8 @@
         margin-top: 20px;
       }
 
-      .Inputcard,
       .Button,
-      .Radiocard,
-      .Checkcard {
+      .Inputcard {
         --COLOR_TEXT: var(--COLOR_INTERACTIVE_BLURRED_TEXT);
         --COLOR_MARK: var(--COLOR_INTERACTIVE_BLURRED_MARK);
         --COLOR_FILL: var(--COLOR_INTERACTIVE_BLURRED_FILL);
@@ -45,14 +43,14 @@
         box-shadow: 0 0 0 var(--INTERACTIVE_SHADOW_WIDTH) var(--COLOR_INTERACTIVE_SHADOW);
       }
 
-      .Button,
-      .Radiocard,
-      .Checkcard {
+      .Button ,
+      .Inputcard:has(> input[type="checkbox"]),
+      .Inputcard:has(> input[type="radio"]) {
         cursor: pointer;
       }
 
-      .Radiocard,
-      .Checkcard {
+      .Inputcard:has(> input[type="checkbox"]),
+      .Inputcard:has(> input[type="radio"]) {
         padding-left: calc(var(--SPACING_HORIZONTAL) * 2 + 16px);
       }
 
@@ -60,8 +58,8 @@
       input[type="password"].Inputbox,
       input[type="text"].Inputbox,
       textarea.Inputbox,
-      input[type="radio"].Radiobox,
-      input[type="checkbox"].Checkbox {
+      input[type="radio"].Inputbox,
+      input[type="checkbox"].Inputbox {
         --COLOR_TEXT: var(--COLOR_INTERACTIVE_BLURRED_TEXT);
         --COLOR_MARK: var(--COLOR_INTERACTIVE_BLURRED_MARK);
         --COLOR_FILL: var(--COLOR_INTERACTIVE_BLURRED_FILL);
@@ -71,8 +69,8 @@
         box-shadow: 0 0 0 var(--INTERACTIVE_SHADOW_WIDTH) var(--COLOR_INTERACTIVE_SHADOW);
       }
 
-      input[type="radio"].Radiobox,
-      input[type="checkbox"].Checkbox {
+      input[type="radio"].Inputbox,
+      input[type="checkbox"].Inputbox {
         display: block;
         appearance: none;
         width: 16px;
@@ -120,8 +118,8 @@
         min-height: calc(var(--SPACING_VERTICAL) * 2 + var(--STROKE_WIDTH) * 2 + 1lh);
       }
 
-      .Radiocard > input[type="radio"],
-      .Checkcard > input[type="checkbox"] {
+      .Inputcard > input[type="radio"],
+      .Inputcard > input[type="checkbox"] {
         position: absolute;
         top: var(--SPACING_VERTICAL);
         left: var(--SPACING_HORIZONTAL);
@@ -132,32 +130,32 @@
         cursor: pointer;
       }
 
-      input[type="radio"].Radiobox,
-      .Radiocard > input[type="radio"] {
+      input[type="radio"].Inputbox,
+      .Inputcard > input[type="radio"] {
         border-radius: 50%;
       }
 
-      input[type="checkbox"].Checkbox:checked::before,
-      .Checkcard > input[type="checkbox"]:checked::before {
+      input[type="checkbox"].Inputbox:checked::before,
+      .Inputcard > input[type="checkbox"]:checked::before {
         content: "✔";
       }
 
-      input[type="checkbox"].Checkbox:indeterminate::before,
-      .Checkcard > input[type="checkbox"]:indeterminate::before {
+      input[type="checkbox"].Inputbox:indeterminate::before,
+      .Inputcard > input[type="checkbox"]:indeterminate::before {
         content: "—";
       }
 
-      input[type="radio"].Radiobox:checked::before,
-      .Radiocard > input[type="radio"]:checked::before {
+      input[type="radio"].Inputbox:checked::before,
+      .Inputcard > input[type="radio"]:checked::before {
         content: "¤";
       }
 
-      input[type="radio"].Radiobox:checked::before,
-      .Radiocard > input[type="radio"]:checked::before,
-      input[type="checkbox"].Checkbox:checked::before,
-      input[type="checkbox"].Checkbox:indeterminate::before,
-      .Checkcard > input[type="checkbox"]:checked::before,
-      .Checkcard > input[type="checkbox"]:indeterminate::before {
+      input[type="radio"].Inputbox:checked::before,
+      .Inputcard > input[type="radio"]:checked::before,
+      input[type="checkbox"].Inputbox:checked::before,
+      input[type="checkbox"].Inputbox:indeterminate::before,
+      .Inputcard > input[type="checkbox"]:checked::before,
+      .Inputcard > input[type="checkbox"]:indeterminate::before {
         display: block;
         width: 100%;
         line-height: 16px;
@@ -170,14 +168,14 @@
       .Inputcard:focus-within,
       .Button:hover,
       .Button:focus,
-      input[type="radio"].Radiobox:hover,
-      input[type="radio"].Radiobox:focus,
-      .Radiocard:hover,
-      .Radiocard:focus-within,
-      input[type="checkbox"].Checkbox:hover,
-      input[type="checkbox"].Checkbox:focus,
-      .Checkcard:hover,
-      .Checkcard:focus-within {
+      input[type="radio"].Inputbox:hover,
+      input[type="radio"].Inputbox:focus,
+      .Inputcard:hover,
+      .Inputcard:focus-within,
+      input[type="checkbox"].Inputbox:hover,
+      input[type="checkbox"].Inputbox:focus,
+      .Inputcard:hover,
+      .Inputcard:focus-within {
         --COLOR_TEXT: var(--COLOR_INTERACTIVE_FOCUSED_TEXT);
         --COLOR_MARK: var(--COLOR_INTERACTIVE_FOCUSED_MARK);
         --COLOR_FILL: var(--COLOR_INTERACTIVE_FOCUSED_FILL);
@@ -202,14 +200,18 @@
       .Inputcard > textarea:focus,
       .Button:hover,
       .Button:focus,
-      input[type="radio"].Radiobox:hover,
-      input[type="radio"].Radiobox:focus,
-      .Radiocard:hover,
-      .Radiocard:focus-within,
-      input[type="checkbox"].Checkbox:hover,
-      input[type="checkbox"].Checkbox:focus,
-      .Checkcard:hover,
-      .Checkcard:focus-within {
+      input[type="radio"].Inputbox:hover,
+      input[type="radio"].Inputbox:focus,
+      .Inputcard:has(> input[type="radio"]):hover,
+      .Inputcard:has(> input[type="checkbox"]):hover,
+      .Inputcard:has(> input[type="radio"]):focus-within,
+      .Inputcard:has(> input[type="checkbox"]):focus-within,
+      input[type="checkbox"].Inputbox:hover,
+      input[type="checkbox"].Inputbox:focus,
+      .Inputcard:has(> input[type="radio"]):hover,
+      .Inputcard:has(> input[type="checkbox"]):hover,
+      .Inputcard:has(> input[type="radio"]):focus-within,
+      .Inputcard:has(> input[type="checkbox"]):focus-within {
         outline: var(--INTERACTIVE_OUTLINE_WIDTH) dashed var(--COLOR_INTERACTIVE_OUTLINE);
         outline-offset: var(--INTERACTIVE_OUTLINE_OFFSET);
       }
@@ -231,12 +233,12 @@
       .Inputcard > input[type="text"]:focus,
       .Inputcard > textarea:focus,
       .Button:active,
-      .Radiocard:has(> input[type="radio"]:active),
-      .Checkcard:has(> input[type="checkbox"]:active),
-      input[type="radio"].Radiobox:active,
-      .Radiocard > input[type="radio"]:active,
-      input[type="checkbox"].Checkbox:active,
-      .Checkcard > input[type="checkbox"]:active {
+      .Inputcard:has(> input[type="radio"]:active),
+      .Inputcard:has(> input[type="checkbox"]:active),
+      input[type="radio"].Inputbox:active,
+      .Inputcard > input[type="radio"]:active,
+      input[type="checkbox"].Inputbox:active,
+      .Inputcard > input[type="checkbox"]:active {
         --COLOR_TEXT: var(--COLOR_INTERACTIVE_PRESSED_TEXT);
         --COLOR_MARK: var(--COLOR_INTERACTIVE_PRESSED_MARK);
         --COLOR_FILL: var(--COLOR_INTERACTIVE_PRESSED_FILL);
@@ -301,7 +303,7 @@
     <button class="Button">
     </button>
 
-    <label class="Checkcard">
+    <label class="Inputcard">
       <input type="checkbox"/>
       <span>Enable lorem ipsum</span>
       <span style="display: block; margin-top: var(--SPACING_VERTICAL);">
@@ -312,18 +314,18 @@
       </span>
     </label>
 
-    <label class="Checkcard">
+    <label class="Inputcard">
       <input type="checkbox"/>
       <span>Enable lorem ipsum</span>
     </label>
 
-    <label class="Checkcard">
+    <label class="Inputcard">
       <input type="checkbox"/>
     </label>
 
-    <input class="Checkbox" type="checkbox"/>
+    <input class="Inputbox" type="checkbox"/>
 
-    <label class="Radiocard">
+    <label class="Inputcard">
       <input type="radio" name="09c342d8"/>
       <span>Enable lorem ipsum</span>
       <span style="display: block; margin-top: var(--SPACING_VERTICAL);">
@@ -334,16 +336,16 @@
       </span>
     </label>
 
-    <label class="Radiocard">
+    <label class="Inputcard">
       <input type="radio" name="09c342d8"/>
       <span>Enable lorem ipsum</span>
     </label>
 
-    <label class="Radiocard">
+    <label class="Inputcard">
       <input type="radio" name="09c342d8"/>
     </label>
 
-    <input class="Radiobox" type="radio" name="09c342d8"/>
+    <input class="Inputbox" type="radio" name="09c342d8"/>
 
   </body>
 </html>
