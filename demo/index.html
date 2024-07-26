@@ -6,10 +6,13 @@
     <title>Demo</title>
     <style>
       @import url("../css/main.css");
-      @import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
       body {
-        font-family: "Encode Sans Semi Condensed", sans-serif;
+        --FONT_SANS_FAMILY: "Encode Sans Semi Condensed", sans-serif;
+        --FONT_MONO_FAMILY: "JetBrains Mono", monospace;
+
         font-size: 16px;
         line-height: 18px;
         font-weight: 500;
@@ -54,6 +57,9 @@
       }
 
       input[type="number"].Inputbox,
+      input[type="password"].Inputbox,
+      input[type="text"].Inputbox,
+      textarea.Inputbox,
       input[type="radio"].Radiobox,
       input[type="checkbox"].Checkbox {
         --COLOR_TEXT: var(--COLOR_INTERACTIVE_BLURRED_TEXT);
@@ -75,14 +81,43 @@
       }
 
       input[type="number"].Inputbox,
-      .Inputcard > input[type="number"] {
+      input[type="password"].Inputbox,
+      input[type="text"].Inputbox,
+      textarea.Inputbox,
+      .Inputcard > input[type="number"],
+      .Inputcard > input[type="password"],
+      .Inputcard > input[type="text"],
+      .Inputcard > textarea {
         display: block;
         width: 100%;
         padding: var(--SPACING_VERTICAL) var(--SPACING_HORIZONTAL);
         border: var(--STROKE_WIDTH) solid var(--COLOR_STROKE);
         background-color: var(--COLOR_FILL);
         color: var(--COLOR_TEXT);
+        font-family: var(--FONT_MONO_FAMILY);
+      }
+
+      input[type="number"].Inputbox,
+      .Inputcard > input[type="number"] {
         text-align: right;
+      }
+
+      input[type="number"].Inputbox::-webkit-outer-spin-button,
+      input[type="number"].Inputbox::-webkit-inner-spin-button,
+      .Inputcard > input[type="number"]::-webkit-outer-spin-button,
+      .Inputcard > input[type="number"]::-webkit-inner-spin-button {
+        appearance: none;
+        opacity: 100%;
+        width: 16px;
+        margin: calc(-1 * var(--SPACING_VERTICAL)) calc(-1 * var(--SPACING_HORIZONTAL)) calc(-1 * var(--SPACING_VERTICAL)) var(--SPACING_HORIZONTAL);
+        background: var(--COLOR_STROKE);
+        cursor: pointer;
+      }
+
+      textarea.Inputbox,
+      .Inputcard > textarea {
+        resize: vertical;
+        min-height: calc(var(--SPACING_VERTICAL) * 2 + var(--STROKE_WIDTH) * 2 + 1lh);
       }
 
       .Radiocard > input[type="radio"],
@@ -150,9 +185,21 @@
       }
 
       input[type="number"].Inputbox:hover,
+      input[type="password"].Inputbox:hover,
+      input[type="text"].Inputbox:hover,
+      textarea.Inputbox:hover,
       input[type="number"].Inputbox:focus,
+      input[type="password"].Inputbox:focus,
+      input[type="text"].Inputbox:focus,
+      textarea.Inputbox:focus,
       .Inputcard:hover > input[type="number"],
+      .Inputcard:hover > input[type="password"],
+      .Inputcard:hover > input[type="text"],
+      .Inputcard:hover > textarea,
       .Inputcard > input[type="number"]:focus,
+      .Inputcard > input[type="password"]:focus,
+      .Inputcard > input[type="text"]:focus,
+      .Inputcard > textarea:focus,
       .Button:hover,
       .Button:focus,
       input[type="radio"].Radiobox:hover,
@@ -168,9 +215,21 @@
       }
 
       input[type="number"].Inputbox:hover,
+      input[type="password"].Inputbox:hover,
+      input[type="text"].Inputbox:hover,
+      textarea.Inputbox:hover,
       input[type="number"].Inputbox:focus,
+      input[type="password"].Inputbox:focus,
+      input[type="text"].Inputbox:focus,
+      textarea.Inputbox:focus,
       .Inputcard:hover > input[type="number"],
+      .Inputcard:hover > input[type="password"],
+      .Inputcard:hover > input[type="text"],
+      .Inputcard:hover > textarea,
       .Inputcard > input[type="number"]:focus,
+      .Inputcard > input[type="password"]:focus,
+      .Inputcard > input[type="text"]:focus,
+      .Inputcard > textarea:focus,
       .Button:active,
       .Radiocard:has(> input[type="radio"]:active),
       .Checkcard:has(> input[type="checkbox"]:active),
@@ -198,16 +257,32 @@
       <input style="margin-top: var(--SPACING_VERTICAL);" type="number"/>
     </label>
 
+    <input class="Inputbox" type="number"/>
+
+    <label class="Inputcard">
+      <input type="password"/>
+    </label>
+
+    <input class="Inputbox" type="password"/>
+
+    <label class="Inputcard">
+      <input type="text"/>
+    </label>
+
+    <input class="Inputbox" type="text"/>
+
     <label class="Inputcard">
       <span>Enable lorem ipsum</span>
-      <input style="margin-top: var(--SPACING_VERTICAL);" type="number"/>
+      <span style="display: block; margin-top: var(--SPACING_VERTICAL);">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
+        recusandae pariatur magni, facilis reiciendis iusto. Tenetur ipsum quam
+        blanditiis accusantium eius laudantium laborum error illo consectetur.
+        Quae sint enim temporibus!
+      </span>
+      <textarea style="margin-top: var(--SPACING_VERTICAL);"></textarea>
     </label>
 
-    <label class="Inputcard">
-      <input type="number"/>
-    </label>
-
-    <input class="Inputbox" type="number"/>
+    <textarea class="Inputbox"></textarea>
 
     <button class="Button">
       <span>Enable lorem ipsum</span>

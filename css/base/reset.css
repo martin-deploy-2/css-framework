@@ -14,7 +14,7 @@
 }
 
 :root {
-  font-family: sans-serif;
+  font-family: var(--FONT_SANS_FAMILY);
   font-size: 12px;
   font-weight: 400;
   font-style: normal;
