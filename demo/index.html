@@ -24,13 +24,106 @@
         margin-top: 20px;
       }
 
+      *::-webkit-scrollbar {
+        background: var(--COLOR_INTERACTIVE_SHADOW);
+        width: var(--INTERACTIVE_SHADOW_WIDTH);
+        height: var(--INTERACTIVE_SHADOW_WIDTH);
+      }
+
+      *::-webkit-scrollbar-button {
+        width: 0;
+        height: 0;
+      }
+
+      *::-webkit-scrollbar-thumb {
+        background: var(--COLOR_STROKE);
+      }
+
+      *::-webkit-scrollbar-thumb:hover {
+        cursor: grab;
+      }
+
+      *::-webkit-scrollbar-thumb:active {
+        cursor: grabbing;
+      }
+
+      *::-webkit-scrollbar-corner,
+      *::-webkit-resizer {
+        background: var(--COLOR_STROKE);
+      }
+
+      *::-webkit-scrollbar-thumb,
+      *::-webkit-scrollbar-corner,
+      *::-webkit-resizer,
+      input[type="number"].Inputbox,
+      input[type="password"].Inputbox,
+      input[type="text"].Inputbox,
+      textarea.Inputbox,
+      input[type="radio"].Inputbox,
+      input[type="checkbox"].Inputbox,
       .Button,
       .Inputcard {
         --COLOR_TEXT: var(--COLOR_INTERACTIVE_BLURRED_TEXT);
         --COLOR_MARK: var(--COLOR_INTERACTIVE_BLURRED_MARK);
         --COLOR_FILL: var(--COLOR_INTERACTIVE_BLURRED_FILL);
         --COLOR_STROKE: var(--COLOR_INTERACTIVE_BLURRED_STROKE);
+      }
 
+      *::-webkit-scrollbar-thumb:hover,
+      *::-webkit-scrollbar-corner:hover,
+      *::-webkit-resizer:hover,
+      .Inputcard:hover,
+      .Inputcard:focus-within,
+      .Button:hover,
+      .Button:focus,
+      input[type="radio"].Inputbox:hover,
+      input[type="radio"].Inputbox:focus,
+      .Inputcard:hover,
+      .Inputcard:focus-within,
+      input[type="checkbox"].Inputbox:hover,
+      input[type="checkbox"].Inputbox:focus,
+      .Inputcard:hover,
+      .Inputcard:focus-within {
+        --COLOR_TEXT: var(--COLOR_INTERACTIVE_FOCUSED_TEXT);
+        --COLOR_MARK: var(--COLOR_INTERACTIVE_FOCUSED_MARK);
+        --COLOR_FILL: var(--COLOR_INTERACTIVE_FOCUSED_FILL);
+        --COLOR_STROKE: var(--COLOR_INTERACTIVE_FOCUSED_STROKE);
+      }
+
+      *::-webkit-scrollbar-thumb:active,
+      *::-webkit-scrollbar-corner:active,
+      *::-webkit-resizer:active,
+      input[type="number"].Inputbox:hover,
+      input[type="password"].Inputbox:hover,
+      input[type="text"].Inputbox:hover,
+      textarea.Inputbox:hover,
+      input[type="number"].Inputbox:focus,
+      input[type="password"].Inputbox:focus,
+      input[type="text"].Inputbox:focus,
+      textarea.Inputbox:focus,
+      .Inputcard:hover > input[type="number"],
+      .Inputcard:hover > input[type="password"],
+      .Inputcard:hover > input[type="text"],
+      .Inputcard:hover > textarea,
+      .Inputcard > input[type="number"]:focus,
+      .Inputcard > input[type="password"]:focus,
+      .Inputcard > input[type="text"]:focus,
+      .Inputcard > textarea:focus,
+      .Button:active,
+      .Inputcard:has(> input[type="radio"]:active),
+      .Inputcard:has(> input[type="checkbox"]:active),
+      input[type="radio"].Inputbox:active,
+      .Inputcard > input[type="radio"]:active,
+      input[type="checkbox"].Inputbox:active,
+      .Inputcard > input[type="checkbox"]:active {
+        --COLOR_TEXT: var(--COLOR_INTERACTIVE_PRESSED_TEXT);
+        --COLOR_MARK: var(--COLOR_INTERACTIVE_PRESSED_MARK);
+        --COLOR_FILL: var(--COLOR_INTERACTIVE_PRESSED_FILL);
+        --COLOR_STROKE: var(--COLOR_INTERACTIVE_PRESSED_STROKE);
+      }
+
+      .Button,
+      .Inputcard {
         position: relative;
         display: block;
         padding: var(--SPACING_VERTICAL) var(--SPACING_HORIZONTAL);
@@ -60,12 +153,7 @@
       textarea.Inputbox,
       input[type="radio"].Inputbox,
       input[type="checkbox"].Inputbox {
-        --COLOR_TEXT: var(--COLOR_INTERACTIVE_BLURRED_TEXT);
-        --COLOR_MARK: var(--COLOR_INTERACTIVE_BLURRED_MARK);
-        --COLOR_FILL: var(--COLOR_INTERACTIVE_BLURRED_FILL);
-        --COLOR_STROKE: var(--COLOR_INTERACTIVE_BLURRED_STROKE);
-
-        background-color: var(--COLOR_STROKE);
+        background: var(--COLOR_STROKE);
         box-shadow: 0 0 0 var(--INTERACTIVE_SHADOW_WIDTH) var(--COLOR_INTERACTIVE_SHADOW);
       }
 
@@ -164,24 +252,6 @@
         color: var(--COLOR_MARK);
       }
 
-      .Inputcard:hover,
-      .Inputcard:focus-within,
-      .Button:hover,
-      .Button:focus,
-      input[type="radio"].Inputbox:hover,
-      input[type="radio"].Inputbox:focus,
-      .Inputcard:hover,
-      .Inputcard:focus-within,
-      input[type="checkbox"].Inputbox:hover,
-      input[type="checkbox"].Inputbox:focus,
-      .Inputcard:hover,
-      .Inputcard:focus-within {
-        --COLOR_TEXT: var(--COLOR_INTERACTIVE_FOCUSED_TEXT);
-        --COLOR_MARK: var(--COLOR_INTERACTIVE_FOCUSED_MARK);
-        --COLOR_FILL: var(--COLOR_INTERACTIVE_FOCUSED_FILL);
-        --COLOR_STROKE: var(--COLOR_INTERACTIVE_FOCUSED_STROKE);
-      }
-
       input[type="number"].Inputbox:hover,
       input[type="password"].Inputbox:hover,
       input[type="text"].Inputbox:hover,
@@ -214,35 +284,6 @@
       .Inputcard:has(> input[type="checkbox"]):focus-within {
         outline: var(--INTERACTIVE_OUTLINE_WIDTH) dashed var(--COLOR_INTERACTIVE_OUTLINE);
         outline-offset: var(--INTERACTIVE_OUTLINE_OFFSET);
-      }
-
-      input[type="number"].Inputbox:hover,
-      input[type="password"].Inputbox:hover,
-      input[type="text"].Inputbox:hover,
-      textarea.Inputbox:hover,
-      input[type="number"].Inputbox:focus,
-      input[type="password"].Inputbox:focus,
-      input[type="text"].Inputbox:focus,
-      textarea.Inputbox:focus,
-      .Inputcard:hover > input[type="number"],
-      .Inputcard:hover > input[type="password"],
-      .Inputcard:hover > input[type="text"],
-      .Inputcard:hover > textarea,
-      .Inputcard > input[type="number"]:focus,
-      .Inputcard > input[type="password"]:focus,
-      .Inputcard > input[type="text"]:focus,
-      .Inputcard > textarea:focus,
-      .Button:active,
-      .Inputcard:has(> input[type="radio"]:active),
-      .Inputcard:has(> input[type="checkbox"]:active),
-      input[type="radio"].Inputbox:active,
-      .Inputcard > input[type="radio"]:active,
-      input[type="checkbox"].Inputbox:active,
-      .Inputcard > input[type="checkbox"]:active {
-        --COLOR_TEXT: var(--COLOR_INTERACTIVE_PRESSED_TEXT);
-        --COLOR_MARK: var(--COLOR_INTERACTIVE_PRESSED_MARK);
-        --COLOR_FILL: var(--COLOR_INTERACTIVE_PRESSED_FILL);
-        --COLOR_STROKE: var(--COLOR_INTERACTIVE_PRESSED_STROKE);
       }
 
     </style>
