@@ -58,16 +58,16 @@ passive =
   & emphasized | normal | faded
 
 checkbox, radio =
-  & emphasized | normal | faded | disabled
+  & emphasized | normal | faded
   & unchecked * indeterminate | checked
-  & blurred | focus | pressed
+  & disabled | blurred | focus | pressed
 
 button, link, cards(?) =
-  & emphasized | normal | faded | disabled
-  & blurred | focus | pressed
+  & emphasized | normal | faded
+  & disabled | blurred | focus | pressed
 
 input, textarea =
-  & emphasized | normal | faded | disabled
-  & blurred | focus
+  & emphasized | normal | faded
+  & disabled | blurred | focus
 
 */

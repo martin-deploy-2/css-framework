@@ -2,8 +2,6 @@ const fs = require("node:fs")
 const http = require("node:http")
 const path = require("node:path")
 
-
-
 function initHotReloadPollingClient() {
   setInterval(() => {
     fetch("/__hotreload__")
@@ -16,7 +14,6 @@ function initHotReloadPollingClient() {
 let fileChanged = false
 
 fs.watch(".", { recursive: true }, (event, file) => {
-  console.log(event, file)
   if (file && (file.startsWith("demo" + path.sep) || file.startsWith("css" + path.sep))) {
     console.log(event, file)
     fileChanged = true
@@ -46,11 +43,11 @@ server.on("request", (request, response) => {
   const ext = request.url.substring(request.url.lastIndexOf(".") + 1)
   const type =
     ext == "/" ? "text/html" :
-      ext == "html" ? "text/html" :
-        ext == "css" ? "text/css" :
-          ext == "js" ? "text/javascript" :
-            ext == "json" ? "application/json" :
-              ""
+    ext == "html" ? "text/html" :
+    ext == "css" ? "text/css" :
+    ext == "js" ? "text/javascript" :
+    ext == "json" ? "application/json" :
+    ""
 
   fs.readFile(file, { encoding: "utf-8" }, (error, data) => {
     if (error) {
