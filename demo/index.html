@@ -52,6 +52,35 @@
         background: var(--COLOR_STROKE);
       }
 
+      .Button:disabled,
+      .Inputcard:has(> input[type="number"]:disabled),
+      .Inputcard:has(> input[type="password"]:disabled),
+      .Inputcard:has(> input[type="text"]:disabled),
+      .Inputcard:has(> textarea:disabled),
+      .Inputcard:has(> input[type="radio"]:disabled),
+      .Inputcard:has(> input[type="checkbox"]:disabled),
+      .Inputcard > input[type="number"]:disabled,
+      .Inputcard > input[type="password"]:disabled,
+      .Inputcard > input[type="text"]:disabled,
+      .Inputcard > textarea:disabled,
+      .Inputcard > input[type="radio"]:disabled,
+      .Inputcard > input[type="checkbox"]:disabled,
+      input[type="number"].Inputbox:disabled,
+      input[type="password"].Inputbox:disabled,
+      input[type="text"].Inputbox:disabled,
+      textarea.Inputbox:disabled,
+      input[type="radio"].Inputbox:disabled,
+      input[type="checkbox"].Inputbox:disabled {
+        --COLOR_TEXT: var(--COLOR_INTERACTIVE_DISABLED_TEXT) !important;
+        --COLOR_MARK: var(--COLOR_INTERACTIVE_DISABLED_MARK) !important;
+        --COLOR_FILL: var(--COLOR_INTERACTIVE_DISABLED_FILL) !important;
+        --COLOR_STROKE: var(--COLOR_INTERACTIVE_DISABLED_STROKE) !important;
+        --COLOR_INTERACTIVE_OUTLINE: transparent !important;
+        --COLOR_INTERACTIVE_SHADOW: transparent !important;
+
+        cursor: not-allowed !important;
+      }
+
       *::-webkit-scrollbar-thumb,
       *::-webkit-scrollbar-corner,
       *::-webkit-resizer,
@@ -294,7 +323,7 @@
   </head>
   <body>
     <label class="Inputcard">
-      <span>Enable lorem ipsum</span>
+      <span>Numbercard</span>
       <span style="display: block; margin-top: var(--SPACING_VERTICAL);">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
         recusandae pariatur magni, facilis reiciendis iusto. Tenetur ipsum quam
@@ -307,19 +336,42 @@
     <input class="Inputbox" type="number"/>
 
     <label class="Inputcard">
-      <input type="password"/>
+      <span>Disabled numbercard</span>
+      <input style="margin-top: var(--SPACING_VERTICAL);" type="number" disabled/>
+    </label>
+
+    <input class="Inputbox" type="number" disabled/>
+
+    <label class="Inputcard">
+      <span>Passwordcard</span>
+      <input style="margin-top: var(--SPACING_VERTICAL);" type="password"/>
     </label>
 
     <input class="Inputbox" type="password"/>
 
     <label class="Inputcard">
-      <input type="text"/>
+      <span>Disabled passwordcard</span>
+      <input style="margin-top: var(--SPACING_VERTICAL);" type="password" disabled/>
+    </label>
+
+    <input class="Inputbox" type="password" disabled/>
+
+    <label class="Inputcard">
+      <span>Stringcard</span>
+      <input style="margin-top: var(--SPACING_VERTICAL);" type="text"/>
     </label>
 
     <input class="Inputbox" type="text"/>
 
     <label class="Inputcard">
-      <span>Enable lorem ipsum</span>
+      <span>Disabled stringcard</span>
+      <input style="margin-top: var(--SPACING_VERTICAL);" type="text" disabled/>
+    </label>
+
+    <input class="Inputbox" type="text" disabled/>
+
+    <label class="Inputcard">
+      <span>Textcard</span>
       <span style="display: block; margin-top: var(--SPACING_VERTICAL);">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
         recusandae pariatur magni, facilis reiciendis iusto. Tenetur ipsum quam
@@ -331,8 +383,15 @@
 
     <textarea class="Inputbox"></textarea>
 
+    <label class="Inputcard">
+      <span>Disabled textcard</span>
+      <textarea style="margin-top: var(--SPACING_VERTICAL);" disabled></textarea>
+    </label>
+
+    <textarea class="Inputbox" disabled></textarea>
+
     <button class="Button">
-      <span>Enable lorem ipsum</span>
+      <span>Button</span>
       <span style="display: block; margin-top: var(--SPACING_VERTICAL);">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
         recusandae pariatur magni, facilis reiciendis iusto. Tenetur ipsum quam
@@ -342,15 +401,19 @@
     </button>
 
     <button class="Button">
-      <span>Enable lorem ipsum</span>
+      <span>Button</span>
     </button>
 
     <button class="Button">
     </button>
 
+    <button class="Button" disabled>
+      <span>Disabled button</span>
+    </button>
+
     <label class="Inputcard">
       <input type="checkbox"/>
-      <span>Enable lorem ipsum</span>
+      <span>Checkcard</span>
       <span style="display: block; margin-top: var(--SPACING_VERTICAL);">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
         recusandae pariatur magni, facilis reiciendis iusto. Tenetur ipsum quam
@@ -361,7 +424,7 @@
 
     <label class="Inputcard">
       <input type="checkbox"/>
-      <span>Enable lorem ipsum</span>
+      <span>Checkcard</span>
     </label>
 
     <label class="Inputcard">
@@ -371,8 +434,15 @@
     <input class="Inputbox" type="checkbox"/>
 
     <label class="Inputcard">
+      <input type="checkbox" disabled/>
+      <span>Disabled checkcard</span>
+    </label>
+
+    <input class="Inputbox" type="checkbox" disabled/>
+
+    <label class="Inputcard">
       <input type="radio" name="09c342d8"/>
-      <span>Enable lorem ipsum</span>
+      <span>Radiocard</span>
       <span style="display: block; margin-top: var(--SPACING_VERTICAL);">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
         recusandae pariatur magni, facilis reiciendis iusto. Tenetur ipsum quam
@@ -383,7 +453,7 @@
 
     <label class="Inputcard">
       <input type="radio" name="09c342d8"/>
-      <span>Enable lorem ipsum</span>
+      <span>Radiocard</span>
     </label>
 
     <label class="Inputcard">
@@ -391,6 +461,13 @@
     </label>
 
     <input class="Inputbox" type="radio" name="09c342d8"/>
+
+    <label class="Inputcard">
+      <input type="radio" name="09c342d8" disabled/>
+      <span>Disabled radiocard</span>
+    </label>
+
+    <input class="Inputbox" type="radio" name="09c342d8" disabled/>
 
   </body>
 </html>
