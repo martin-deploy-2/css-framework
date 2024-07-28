@@ -1,6 +1,10 @@
 @import url("./base/variables.css");
 @import url("./base/reset.css");
 
+@import url("./scrollbars.css");
+@import url("./forms.css");
+@import url("./text.css");
+
 @import url("./modifiers/colors/emphasized.css");
 @import url("./modifiers/colors/normal.css");
 @import url("./modifiers/colors/faded.css");

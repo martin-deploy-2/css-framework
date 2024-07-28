@@ -1,0 +1,82 @@
+.H1,
+.H2,
+.H3,
+.H4 {}
+
+.H1 {
+  --FONT_SANS_SIZE: 3.0em;
+  --FONT_SANS_WEIGHT: 300;
+}
+
+.H2 {
+  --FONT_SANS_SIZE: 2.5em;
+  --FONT_SANS_WEIGHT: 300;
+}
+
+.H3 {
+  --FONT_SANS_SIZE: 2.0em;
+  --FONT_SANS_WEIGHT: 400;
+}
+
+.H4 {
+  --FONT_SANS_SIZE: 1.5em;
+  --FONT_SANS_WEIGHT: 400;
+}
+
+.P {}
+
+.Quote {}
+
+.Quote>blockquote {
+  font-style: italic;
+  padding: var(--SPACING_VERTICAL) var(--SPACING_HORIZONTAL);
+  border: calc(3 * var(--STROKE_WIDTH)) var(--COLOR_STROKE);
+  border-style: none double;
+}
+
+.Quote>blockquote> :first-child::before {
+  content: "« ";
+}
+
+.Quote>blockquote> :last-child::after {
+  content: " »"
+}
+
+.Quote>figcaption {
+  margin: var(--SPACING_VERTICAL) calc(var(--SPACING_HORIZONTAL) + 3 * var(--STROKE_WIDTH)) 0;
+  text-align: right;
+}
+
+.Quote>figcaption> :first-child::before {
+  content: "— "
+}
+
+.Link {
+  --COLOR_TEXT: var(--COLOR_INTERACTIVE_BLURRED_TEXT);
+
+  box-shadow: 0 var(--INTERACTIVE_SHADOW_WIDTH) 0 0 var(--COLOR_INTERACTIVE_SHADOW);
+  color: var(--COLOR_TEXT);
+}
+
+.Link:hover,
+.Link:focus {
+  --COLOR_TEXT: var(--COLOR_INTERACTIVE_FOCUSED_TEXT);
+}
+
+.Link:active {
+  --COLOR_TEXT: var(--COLOR_INTERACTIVE_PRESSED_TEXT);
+}
+
+.Link:visited {
+  --COLOR_INTERACTIVE_BLURRED_TEXT: var(--COLOR_INTERACTIVE_CHECKED_BLURRED_TEXT);
+  --COLOR_INTERACTIVE_FOCUSED_TEXT: var(--COLOR_INTERACTIVE_CHECKED_FOCUSED_TEXT);
+  --COLOR_INTERACTIVE_PRESSED_TEXT: var(--COLOR_INTERACTIVE_CHECKED_PRESSED_TEXT);
+}
+
+.List {
+  padding-left: 1.1em;
+}
+
+.List ::marker {
+  color: var(--COLOR_STROKE);
+}

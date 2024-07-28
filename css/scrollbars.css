@@ -1,0 +1,27 @@
+*::-webkit-scrollbar {
+  background: var(--COLOR_INTERACTIVE_SHADOW);
+  width: var(--INTERACTIVE_SHADOW_WIDTH);
+  height: var(--INTERACTIVE_SHADOW_WIDTH);
+}
+
+*::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--COLOR_STROKE);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  cursor: grab;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  cursor: grabbing;
+}
+
+*::-webkit-scrollbar-corner,
+*::-webkit-resizer {
+  background: var(--COLOR_STROKE);
+}

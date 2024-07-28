@@ -5,18 +5,16 @@
   padding: 0;
   border: none;
   outline: none;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
+  font-family: var(--FONT_SANS_FAMILY);
+  line-height: var(--FONT_SANS_LINE);
+  font-size: var(--FONT_SANS_SIZE);
+  font-weight: var(--FONT_SANS_WEIGHT);
   font-style: inherit;
   text-decoration: inherit;
   text-align: inherit;
 }
 
 :root {
-  font-family: var(--FONT_SANS_FAMILY);
-  font-size: 12px;
-  font-weight: 400;
   font-style: normal;
   text-decoration: none;
   text-align: start;
@@ -31,4 +29,8 @@ html {
 body {
   min-height: 100%;
 }
+
+
+
+
 /* S'that reset enough for you, now? You'll behave, now? Good. */

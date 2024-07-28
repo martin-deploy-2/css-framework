@@ -11,11 +11,14 @@
 
       body {
         --FONT_SANS_FAMILY: "Encode Sans Semi Condensed", sans-serif;
-        --FONT_MONO_FAMILY: "JetBrains Mono", monospace;
+        --FONT_SANS_LINE: 1.3em;
+        --FONT_SANS_SIZE: 16px;
+        --FONT_SANS_WEIGHT: 500;
 
-        font-size: 16px;
-        line-height: 18px;
-        font-weight: 500;
+        --FONT_MONO_FAMILY: "JetBrains Mono", monospace;
+        --FONT_MONO_LINE: 1.4em;
+        --FONT_MONO_SIZE: 14px;
+        --FONT_MONO_WEIGHT: 500;
 
         padding: 200px;
       }
@@ -24,413 +27,135 @@
         margin-top: 20px;
       }
 
-      *::-webkit-scrollbar {
-        background: var(--COLOR_INTERACTIVE_SHADOW);
-        width: var(--INTERACTIVE_SHADOW_WIDTH);
-        height: var(--INTERACTIVE_SHADOW_WIDTH);
-      }
-
-      *::-webkit-scrollbar-button {
-        width: 0;
-        height: 0;
-      }
-
-      *::-webkit-scrollbar-thumb {
-        background: var(--COLOR_STROKE);
-      }
-
-      *::-webkit-scrollbar-thumb:hover {
-        cursor: grab;
-      }
-
-      *::-webkit-scrollbar-thumb:active {
-        cursor: grabbing;
-      }
-
-      *::-webkit-scrollbar-corner,
-      *::-webkit-resizer {
-        background: var(--COLOR_STROKE);
-      }
-
-      .Button:disabled,
-      .Inputcard:has(> input[type="number"]:disabled),
-      .Inputcard:has(> input[type="password"]:disabled),
-      .Inputcard:has(> input[type="text"]:disabled),
-      .Inputcard:has(> textarea:disabled),
-      .Inputcard:has(> input[type="radio"]:disabled),
-      .Inputcard:has(> input[type="checkbox"]:disabled),
-      .Inputcard > input[type="number"]:disabled,
-      .Inputcard > input[type="password"]:disabled,
-      .Inputcard > input[type="text"]:disabled,
-      .Inputcard > textarea:disabled,
-      .Inputcard > input[type="radio"]:disabled,
-      .Inputcard > input[type="checkbox"]:disabled,
-      input[type="number"].Inputbox:disabled,
-      input[type="password"].Inputbox:disabled,
-      input[type="text"].Inputbox:disabled,
-      textarea.Inputbox:disabled,
-      input[type="radio"].Inputbox:disabled,
-      input[type="checkbox"].Inputbox:disabled {
-        --COLOR_TEXT: var(--COLOR_INTERACTIVE_DISABLED_TEXT) !important;
-        --COLOR_MARK: var(--COLOR_INTERACTIVE_DISABLED_MARK) !important;
-        --COLOR_FILL: var(--COLOR_INTERACTIVE_DISABLED_FILL) !important;
-        --COLOR_STROKE: var(--COLOR_INTERACTIVE_DISABLED_STROKE) !important;
-        --COLOR_INTERACTIVE_OUTLINE: transparent !important;
-        --COLOR_INTERACTIVE_SHADOW: transparent !important;
-
-        cursor: not-allowed !important;
-      }
-
-      *::-webkit-scrollbar-thumb,
-      *::-webkit-scrollbar-corner,
-      *::-webkit-resizer,
-      input[type="number"].Inputbox,
-      input[type="password"].Inputbox,
-      input[type="text"].Inputbox,
-      textarea.Inputbox,
-      input[type="radio"].Inputbox,
-      input[type="checkbox"].Inputbox,
-      .Button,
-      .Inputcard {
-        --COLOR_TEXT: var(--COLOR_INTERACTIVE_BLURRED_TEXT);
-        --COLOR_MARK: var(--COLOR_INTERACTIVE_BLURRED_MARK);
-        --COLOR_FILL: var(--COLOR_INTERACTIVE_BLURRED_FILL);
-        --COLOR_STROKE: var(--COLOR_INTERACTIVE_BLURRED_STROKE);
-      }
-
-      *::-webkit-scrollbar-thumb:hover,
-      *::-webkit-scrollbar-corner:hover,
-      *::-webkit-resizer:hover,
-      .Inputcard:hover,
-      .Inputcard:focus-within,
-      .Button:hover,
-      .Button:focus,
-      input[type="radio"].Inputbox:hover,
-      input[type="radio"].Inputbox:focus,
-      .Inputcard:hover,
-      .Inputcard:focus-within,
-      input[type="checkbox"].Inputbox:hover,
-      input[type="checkbox"].Inputbox:focus,
-      .Inputcard:hover,
-      .Inputcard:focus-within {
-        --COLOR_TEXT: var(--COLOR_INTERACTIVE_FOCUSED_TEXT);
-        --COLOR_MARK: var(--COLOR_INTERACTIVE_FOCUSED_MARK);
-        --COLOR_FILL: var(--COLOR_INTERACTIVE_FOCUSED_FILL);
-        --COLOR_STROKE: var(--COLOR_INTERACTIVE_FOCUSED_STROKE);
-      }
-
-      *::-webkit-scrollbar-thumb:active,
-      *::-webkit-scrollbar-corner:active,
-      *::-webkit-resizer:active,
-      input[type="number"].Inputbox:hover,
-      input[type="password"].Inputbox:hover,
-      input[type="text"].Inputbox:hover,
-      textarea.Inputbox:hover,
-      input[type="number"].Inputbox:focus,
-      input[type="password"].Inputbox:focus,
-      input[type="text"].Inputbox:focus,
-      textarea.Inputbox:focus,
-      .Inputcard:hover > input[type="number"],
-      .Inputcard:hover > input[type="password"],
-      .Inputcard:hover > input[type="text"],
-      .Inputcard:hover > textarea,
-      .Inputcard > input[type="number"]:focus,
-      .Inputcard > input[type="password"]:focus,
-      .Inputcard > input[type="text"]:focus,
-      .Inputcard > textarea:focus,
-      .Button:active,
-      .Inputcard:has(> input[type="radio"]:active),
-      .Inputcard:has(> input[type="checkbox"]:active),
-      input[type="radio"].Inputbox:active,
-      .Inputcard > input[type="radio"]:active,
-      input[type="checkbox"].Inputbox:active,
-      .Inputcard > input[type="checkbox"]:active {
-        --COLOR_TEXT: var(--COLOR_INTERACTIVE_PRESSED_TEXT);
-        --COLOR_MARK: var(--COLOR_INTERACTIVE_PRESSED_MARK);
-        --COLOR_FILL: var(--COLOR_INTERACTIVE_PRESSED_FILL);
-        --COLOR_STROKE: var(--COLOR_INTERACTIVE_PRESSED_STROKE);
-      }
-
-      .Button,
-      .Inputcard {
-        position: relative;
-        display: block;
-        padding: var(--SPACING_VERTICAL) var(--SPACING_HORIZONTAL);
-        width: 100%;
-        min-width: calc(var(--SPACING_HORIZONTAL) * 2 + var(--STROKE_WIDTH) * 2 + 16px);
-        min-height: calc(var(--SPACING_VERTICAL) * 2 + var(--STROKE_WIDTH) * 2 + 16px);
-        color: var(--COLOR_TEXT);
-        border: var(--STROKE_WIDTH) solid var(--COLOR_STROKE);
-        background: var(--COLOR_FILL);
-        box-shadow: 0 0 0 var(--INTERACTIVE_SHADOW_WIDTH) var(--COLOR_INTERACTIVE_SHADOW);
-      }
-
-      .Button ,
-      .Inputcard:has(> input[type="checkbox"]),
-      .Inputcard:has(> input[type="radio"]) {
-        cursor: pointer;
-      }
-
-      .Inputcard:has(> input[type="checkbox"]),
-      .Inputcard:has(> input[type="radio"]) {
-        padding-left: calc(var(--SPACING_HORIZONTAL) * 2 + 16px);
-      }
-
-      input[type="number"].Inputbox,
-      input[type="password"].Inputbox,
-      input[type="text"].Inputbox,
-      textarea.Inputbox,
-      input[type="radio"].Inputbox,
-      input[type="checkbox"].Inputbox {
-        background: var(--COLOR_STROKE);
-        box-shadow: 0 0 0 var(--INTERACTIVE_SHADOW_WIDTH) var(--COLOR_INTERACTIVE_SHADOW);
-      }
-
-      input[type="radio"].Inputbox,
-      input[type="checkbox"].Inputbox {
-        display: block;
-        appearance: none;
-        width: 16px;
-        height: 16px;
-        cursor: pointer;
-      }
-
-      input[type="number"].Inputbox,
-      input[type="password"].Inputbox,
-      input[type="text"].Inputbox,
-      textarea.Inputbox,
-      .Inputcard > input[type="number"],
-      .Inputcard > input[type="password"],
-      .Inputcard > input[type="text"],
-      .Inputcard > textarea {
-        display: block;
-        width: 100%;
-        padding: var(--SPACING_VERTICAL) var(--SPACING_HORIZONTAL);
-        border: var(--STROKE_WIDTH) solid var(--COLOR_STROKE);
-        background-color: var(--COLOR_FILL);
-        color: var(--COLOR_TEXT);
-        font-family: var(--FONT_MONO_FAMILY);
-      }
-
-      input[type="number"].Inputbox,
-      .Inputcard > input[type="number"] {
-        text-align: right;
-      }
-
-      input[type="number"].Inputbox::-webkit-outer-spin-button,
-      input[type="number"].Inputbox::-webkit-inner-spin-button,
-      .Inputcard > input[type="number"]::-webkit-outer-spin-button,
-      .Inputcard > input[type="number"]::-webkit-inner-spin-button {
-        appearance: none;
-        display: none;
-      }
-
-      textarea.Inputbox,
-      .Inputcard > textarea {
-        resize: vertical;
-        min-height: calc(var(--SPACING_VERTICAL) * 2 + var(--STROKE_WIDTH) * 2 + 1lh);
-      }
-
-      .Inputcard > input[type="radio"],
-      .Inputcard > input[type="checkbox"] {
-        position: absolute;
-        top: var(--SPACING_VERTICAL);
-        left: var(--SPACING_HORIZONTAL);
-        appearance: none;
-        width: 16px;
-        height: 16px;
-        background-color: var(--COLOR_STROKE);
-        cursor: pointer;
-      }
-
-      input[type="radio"].Inputbox,
-      .Inputcard > input[type="radio"] {
-        border-radius: 50%;
-      }
-
-      input[type="radio"].Inputbox::before,
-      .Inputcard > input[type="radio"]::before,
-      input[type="checkbox"].Inputbox::before,
-      .Inputcard > input[type="checkbox"]::before {
-        content: "";
-        display: block;
-        width: 100%;
-        height: 100%;
-        background: var(--COLOR_MARK);
-        clip-path: var(--MARK_PATH);
-      }
-
-      input[type="checkbox"].Inputbox::before,
-      .Inputcard > input[type="checkbox"]::before {
-        --MARK_PATH: path("M 4.464474,3.051635 3.051652,4.464459 6.587169,8.00001 3.051635,11.535544 4.464456,12.948366 7.999992,9.412833 11.535526,12.948366 12.948365,11.535527 9.412831,7.999993 12.948364,4.464458 11.535542,3.051636 8.000008,6.587169 Z");
-      }
-
-      input[type="checkbox"].Inputbox:indeterminate::before,
-      .Inputcard > input[type="checkbox"]:indeterminate::before {
-        --MARK_PATH: path("m 2,7 v 2 H 14 v -2 z");
-      }
-
-      input[type="checkbox"].Inputbox:checked::before,
-      .Inputcard > input[type="checkbox"]:checked::before {
-        --MARK_PATH: path("M 12.243495,4.073535 13.656318,5.486359 6.879517,12.263161 3.344,8.727609 4.7568179,7.314783 6.8795159,9.437514 Z");
-      }
-
-      input[type="radio"].Inputbox::before,
-      .Inputcard > input[type="radio"]::before {
-        --MARK_PATH: path("m 12.242641,3.75736 a 6,6 0 0 0 -8.485281,-10e-7 6,6 0 0 0 0,8.485282 6,6 0 0 0 8.48528,-1e-6 6,6 0 0 0 1e-6,-8.48528 z m -1.414214,1.414213 a 4,4 0 0 1 -10e-7,5.656854 4,4 0 0 1 -5.656852,0 4,4 0 0 1 -10e-7,-5.656855 4,4 0 0 1 5.656854,1e-6 z");
-      }
-
-      input[type="radio"].Inputbox:checked::before,
-      .Inputcard > input[type="radio"]:checked::before {
-        --MARK_PATH: path("M 8,2 A 6,6 0 0 0 2,8 6,6 0 0 0 8,14 6,6 0 0 0 14,8 6,6 0 0 0 8,2 Z M 8,4 A 4,4 0 0 1 12,8 4,4 0 0 1 8,12 4,4 0 0 1 4,8 4,4 0 0 1 8,4 Z M 8,6 A 2,2 0 0 0 6,8 2,2 0 0 0 8,10 2,2 0 0 0 10,8 2,2 0 0 0 8,6 Z");
-      }
-
-      input[type="checkbox"].Inputbox:indeterminate,
-      .Inputcard:has(> input[type="checkbox"]:indeterminate) {
-        --COLOR_INTERACTIVE_BLURRED_TEXT: var(--COLOR_INTERACTIVE_INDETERMINATE_BLURRED_TEXT);
-        --COLOR_INTERACTIVE_BLURRED_MARK: var(--COLOR_INTERACTIVE_INDETERMINATE_BLURRED_MARK);
-        --COLOR_INTERACTIVE_BLURRED_STROKE: var(--COLOR_INTERACTIVE_INDETERMINATE_BLURRED_STROKE);
-        --COLOR_INTERACTIVE_BLURRED_FILL: var(--COLOR_INTERACTIVE_INDETERMINATE_BLURRED_FILL);
-
-        --COLOR_INTERACTIVE_FOCUSED_TEXT: var(--COLOR_INTERACTIVE_INDETERMINATE_FOCUSED_TEXT);
-        --COLOR_INTERACTIVE_FOCUSED_MARK: var(--COLOR_INTERACTIVE_INDETERMINATE_FOCUSED_MARK);
-        --COLOR_INTERACTIVE_FOCUSED_STROKE: var(--COLOR_INTERACTIVE_INDETERMINATE_FOCUSED_STROKE);
-        --COLOR_INTERACTIVE_FOCUSED_FILL: var(--COLOR_INTERACTIVE_INDETERMINATE_FOCUSED_FILL);
-
-        --COLOR_INTERACTIVE_PRESSED_TEXT: var(--COLOR_INTERACTIVE_INDETERMINATE_PRESSED_TEXT);
-        --COLOR_INTERACTIVE_PRESSED_MARK: var(--COLOR_INTERACTIVE_INDETERMINATE_PRESSED_MARK);
-        --COLOR_INTERACTIVE_PRESSED_STROKE: var(--COLOR_INTERACTIVE_INDETERMINATE_PRESSED_STROKE);
-        --COLOR_INTERACTIVE_PRESSED_FILL: var(--COLOR_INTERACTIVE_INDETERMINATE_PRESSED_FILL);
-      }
-
-      input[type="checkbox"].Inputbox:checked,
-      .Inputcard:has(> input[type="checkbox"]:checked),
-      input[type="radio"].Inputbox:checked,
-      .Inputcard:has(> input[type="radio"]:checked) {
-        --COLOR_INTERACTIVE_BLURRED_TEXT: var(--COLOR_INTERACTIVE_CHECKED_BLURRED_TEXT);
-        --COLOR_INTERACTIVE_BLURRED_MARK: var(--COLOR_INTERACTIVE_CHECKED_BLURRED_MARK);
-        --COLOR_INTERACTIVE_BLURRED_STROKE: var(--COLOR_INTERACTIVE_CHECKED_BLURRED_STROKE);
-        --COLOR_INTERACTIVE_BLURRED_FILL: var(--COLOR_INTERACTIVE_CHECKED_BLURRED_FILL);
-
-        --COLOR_INTERACTIVE_FOCUSED_TEXT: var(--COLOR_INTERACTIVE_CHECKED_FOCUSED_TEXT);
-        --COLOR_INTERACTIVE_FOCUSED_MARK: var(--COLOR_INTERACTIVE_CHECKED_FOCUSED_MARK);
-        --COLOR_INTERACTIVE_FOCUSED_STROKE: var(--COLOR_INTERACTIVE_CHECKED_FOCUSED_STROKE);
-        --COLOR_INTERACTIVE_FOCUSED_FILL: var(--COLOR_INTERACTIVE_CHECKED_FOCUSED_FILL);
-
-        --COLOR_INTERACTIVE_PRESSED_TEXT: var(--COLOR_INTERACTIVE_CHECKED_PRESSED_TEXT);
-        --COLOR_INTERACTIVE_PRESSED_MARK: var(--COLOR_INTERACTIVE_CHECKED_PRESSED_MARK);
-        --COLOR_INTERACTIVE_PRESSED_STROKE: var(--COLOR_INTERACTIVE_CHECKED_PRESSED_STROKE);
-        --COLOR_INTERACTIVE_PRESSED_FILL: var(--COLOR_INTERACTIVE_CHECKED_PRESSED_FILL);
-      }
-
-      input[type="number"].Inputbox:hover,
-      input[type="password"].Inputbox:hover,
-      input[type="text"].Inputbox:hover,
-      textarea.Inputbox:hover,
-      input[type="number"].Inputbox:focus,
-      input[type="password"].Inputbox:focus,
-      input[type="text"].Inputbox:focus,
-      textarea.Inputbox:focus,
-      .Inputcard:hover > input[type="number"],
-      .Inputcard:hover > input[type="password"],
-      .Inputcard:hover > input[type="text"],
-      .Inputcard:hover > textarea,
-      .Inputcard > input[type="number"]:focus,
-      .Inputcard > input[type="password"]:focus,
-      .Inputcard > input[type="text"]:focus,
-      .Inputcard > textarea:focus,
-      .Button:hover,
-      .Button:focus,
-      input[type="radio"].Inputbox:hover,
-      input[type="radio"].Inputbox:focus,
-      .Inputcard:has(> input[type="radio"]):hover,
-      .Inputcard:has(> input[type="checkbox"]):hover,
-      .Inputcard:has(> input[type="radio"]):focus-within,
-      .Inputcard:has(> input[type="checkbox"]):focus-within,
-      input[type="checkbox"].Inputbox:hover,
-      input[type="checkbox"].Inputbox:focus,
-      .Inputcard:has(> input[type="radio"]):hover,
-      .Inputcard:has(> input[type="checkbox"]):hover,
-      .Inputcard:has(> input[type="radio"]):focus-within,
-      .Inputcard:has(> input[type="checkbox"]):focus-within {
-        outline: var(--INTERACTIVE_OUTLINE_WIDTH) dashed var(--COLOR_INTERACTIVE_OUTLINE);
-        outline-offset: var(--INTERACTIVE_OUTLINE_OFFSET);
-      }
 
     </style>
   </head>
   <body>
+    <h1 class="H1">Heading 1</h1>
+    <h2 class="H2">Heading 2</h2>
+    <h3 class="H3">Heading 3</h3>
+    <h4 class="H4">Heading 4</h4>
+
+    <p class="P">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium harum
+      modi exercitationem, deserunt nesciunt hic omnis ab iure in recusandae
+      adipisci voluptatem quos? Incidunt amet ducimus officiis itaque fuga poro?
+    </p>
+
+    <ul class="List">
+      <li>Lorem ipsum dolor sit amet.</li>
+      <li>Consectetur adipisicing elit.</li>
+      <li>Laudantium harum.</li>
+    </ul>
+
+    <ol class="List">
+      <li>
+        <p class="P">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio
+          ratione magni dolore quas molestiae at animi, culpa maiores libero
+          enim aspernatur quae itaque?
+        </p>
+      </li>
+      <li>
+        <p class="P">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam
+          doloribus iusto cumque deserunt nihil. Explicabo placeat tempore sed
+          officia beatae nobis voluptatum dignissimos.
+        </p>
+      </li>
+      <li>
+        <p class="P">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ex,
+          alias quibusdam officia, harum aliquid modi iste ratione adipisci
+          repudiandae animi.
+        </p>
+      </li>
+    </ol>
+
+    <figure class="Quote">
+      <blockquote cite="https://www.huxley.net/bnw/four.html">
+        <p>
+          Words can be like X-rays, if you use them properly—they'll go through
+          anything. You read and you're pierced.
+        </p>
+      </blockquote>
+      <figcaption>
+        <span>Aldous Huxley,</span>
+        <cite><a class="Link" href="https://www.huxley.net/bnw/four.html">Brave New World</a></cite>
+      </figcaption>
+    </figure>
+
     <label class="Inputcard">
       <span>Numbercard</span>
-      <span style="display: block; margin-top: var(--SPACING_VERTICAL);">
+      <span style="display: block;">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
         recusandae pariatur magni, facilis reiciendis iusto. Tenetur ipsum quam
         blanditiis accusantium eius laudantium laborum error illo consectetur.
         Quae sint enim temporibus!
       </span>
-      <input style="margin-top: var(--SPACING_VERTICAL);" type="number"/>
+      <input style="" type="number"/>
     </label>
 
     <input class="Inputbox" type="number"/>
 
     <label class="Inputcard">
       <span>Disabled numbercard</span>
-      <input style="margin-top: var(--SPACING_VERTICAL);" type="number" disabled/>
+      <input style="" type="number" disabled/>
     </label>
 
     <input class="Inputbox" type="number" disabled/>
 
     <label class="Inputcard">
       <span>Passwordcard</span>
-      <input style="margin-top: var(--SPACING_VERTICAL);" type="password"/>
+      <input style="" type="password"/>
     </label>
 
     <input class="Inputbox" type="password"/>
 
     <label class="Inputcard">
       <span>Disabled passwordcard</span>
-      <input style="margin-top: var(--SPACING_VERTICAL);" type="password" disabled/>
+      <input style="" type="password" disabled/>
     </label>
 
     <input class="Inputbox" type="password" disabled/>
 
     <label class="Inputcard">
       <span>Stringcard</span>
-      <input style="margin-top: var(--SPACING_VERTICAL);" type="text"/>
+      <input style="" type="text"/>
     </label>
 
     <input class="Inputbox" type="text"/>
 
     <label class="Inputcard">
       <span>Disabled stringcard</span>
-      <input style="margin-top: var(--SPACING_VERTICAL);" type="text" disabled/>
+      <input style="" type="text" disabled/>
     </label>
 
     <input class="Inputbox" type="text" disabled/>
 
     <label class="Inputcard">
       <span>Textcard</span>
-      <span style="display: block; margin-top: var(--SPACING_VERTICAL);">
+      <span style="display: block;">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
         recusandae pariatur magni, facilis reiciendis iusto. Tenetur ipsum quam
         blanditiis accusantium eius laudantium laborum error illo consectetur.
         Quae sint enim temporibus!
       </span>
-      <textarea style="margin-top: var(--SPACING_VERTICAL);"></textarea>
+      <textarea style=""></textarea>
     </label>
 
     <textarea class="Inputbox"></textarea>
 
     <label class="Inputcard">
       <span>Disabled textcard</span>
-      <textarea style="margin-top: var(--SPACING_VERTICAL);" disabled></textarea>
+      <textarea style="" disabled></textarea>
     </label>
 
     <textarea class="Inputbox" disabled></textarea>
 
     <button class="Button">
       <span>Button</span>
-      <span style="display: block; margin-top: var(--SPACING_VERTICAL);">
+      <span style="display: block;">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
         recusandae pariatur magni, facilis reiciendis iusto. Tenetur ipsum quam
         blanditiis accusantium eius laudantium laborum error illo consectetur.
