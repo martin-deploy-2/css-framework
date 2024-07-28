@@ -5,12 +5,12 @@
 .Inputcard:has(> textarea:disabled),
 .Inputcard:has(> input[type="radio"]:disabled),
 .Inputcard:has(> input[type="checkbox"]:disabled),
-.Inputcard>input[type="number"]:disabled,
-.Inputcard>input[type="password"]:disabled,
-.Inputcard>input[type="text"]:disabled,
-.Inputcard>textarea:disabled,
-.Inputcard>input[type="radio"]:disabled,
-.Inputcard>input[type="checkbox"]:disabled,
+.Inputcard > input[type="number"]:disabled,
+.Inputcard > input[type="password"]:disabled,
+.Inputcard > input[type="text"]:disabled,
+.Inputcard > textarea:disabled,
+.Inputcard > input[type="radio"]:disabled,
+.Inputcard > input[type="checkbox"]:disabled,
 input[type="number"].Inputbox:disabled,
 input[type="password"].Inputbox:disabled,
 input[type="text"].Inputbox:disabled,
@@ -67,21 +67,21 @@ input[type="number"].Inputbox:focus,
 input[type="password"].Inputbox:focus,
 input[type="text"].Inputbox:focus,
 textarea.Inputbox:focus,
-.Inputcard:hover>input[type="number"],
-.Inputcard:hover>input[type="password"],
-.Inputcard:hover>input[type="text"],
-.Inputcard:hover>textarea,
-.Inputcard>input[type="number"]:focus,
-.Inputcard>input[type="password"]:focus,
-.Inputcard>input[type="text"]:focus,
-.Inputcard>textarea:focus,
+.Inputcard:hover > input[type="number"],
+.Inputcard:hover > input[type="password"],
+.Inputcard:hover > input[type="text"],
+.Inputcard:hover > textarea,
+.Inputcard > input[type="number"]:focus,
+.Inputcard > input[type="password"]:focus,
+.Inputcard > input[type="text"]:focus,
+.Inputcard > textarea:focus,
 .Button:active,
 .Inputcard:has(> input[type="radio"]:active),
 .Inputcard:has(> input[type="checkbox"]:active),
 input[type="radio"].Inputbox:active,
-.Inputcard>input[type="radio"]:active,
+.Inputcard > input[type="radio"]:active,
 input[type="checkbox"].Inputbox:active,
-.Inputcard>input[type="checkbox"]:active {
+.Inputcard > input[type="checkbox"]:active {
   --COLOR_TEXT: var(--COLOR_INTERACTIVE_PRESSED_TEXT);
   --COLOR_MARK: var(--COLOR_INTERACTIVE_PRESSED_MARK);
   --COLOR_FILL: var(--COLOR_INTERACTIVE_PRESSED_FILL);
@@ -136,10 +136,10 @@ input[type="number"].Inputbox,
 input[type="password"].Inputbox,
 input[type="text"].Inputbox,
 textarea.Inputbox,
-.Inputcard>input[type="number"],
-.Inputcard>input[type="password"],
-.Inputcard>input[type="text"],
-.Inputcard>textarea {
+.Inputcard > input[type="number"],
+.Inputcard > input[type="password"],
+.Inputcard > input[type="text"],
+.Inputcard > textarea {
   display: block;
   width: 100%;
   padding: var(--SPACING_VERTICAL) var(--SPACING_HORIZONTAL);
@@ -153,26 +153,26 @@ textarea.Inputbox,
 }
 
 input[type="number"].Inputbox,
-.Inputcard>input[type="number"] {
+.Inputcard > input[type="number"] {
   text-align: right;
 }
 
 input[type="number"].Inputbox::-webkit-outer-spin-button,
 input[type="number"].Inputbox::-webkit-inner-spin-button,
-.Inputcard>input[type="number"]::-webkit-outer-spin-button,
-.Inputcard>input[type="number"]::-webkit-inner-spin-button {
+.Inputcard > input[type="number"]::-webkit-outer-spin-button,
+.Inputcard > input[type="number"]::-webkit-inner-spin-button {
   appearance: none;
   display: none;
 }
 
 textarea.Inputbox,
-.Inputcard>textarea {
+.Inputcard > textarea {
   resize: vertical;
   min-height: calc(var(--SPACING_VERTICAL) * 2 + var(--STROKE_WIDTH) * 2 + 1lh);
 }
 
-.Inputcard>input[type="radio"],
-.Inputcard>input[type="checkbox"] {
+.Inputcard > input[type="radio"],
+.Inputcard > input[type="checkbox"] {
   position: absolute;
   top: var(--SPACING_VERTICAL);
   left: var(--SPACING_HORIZONTAL);
@@ -184,14 +184,14 @@ textarea.Inputbox,
 }
 
 input[type="radio"].Inputbox,
-.Inputcard>input[type="radio"] {
+.Inputcard > input[type="radio"] {
   border-radius: 50%;
 }
 
 input[type="radio"].Inputbox::before,
-.Inputcard>input[type="radio"]::before,
+.Inputcard > input[type="radio"]::before,
 input[type="checkbox"].Inputbox::before,
-.Inputcard>input[type="checkbox"]::before {
+.Inputcard > input[type="checkbox"]::before {
   content: "";
   display: block;
   width: 100%;
@@ -201,27 +201,27 @@ input[type="checkbox"].Inputbox::before,
 }
 
 input[type="checkbox"].Inputbox::before,
-.Inputcard>input[type="checkbox"]::before {
+.Inputcard > input[type="checkbox"]::before {
   --MARK_PATH: path("M 4.464474,3.051635 3.051652,4.464459 6.587169,8.00001 3.051635,11.535544 4.464456,12.948366 7.999992,9.412833 11.535526,12.948366 12.948365,11.535527 9.412831,7.999993 12.948364,4.464458 11.535542,3.051636 8.000008,6.587169 Z");
 }
 
 input[type="checkbox"].Inputbox:indeterminate::before,
-.Inputcard>input[type="checkbox"]:indeterminate::before {
+.Inputcard > input[type="checkbox"]:indeterminate::before {
   --MARK_PATH: path("m 2,7 v 2 H 14 v -2 z");
 }
 
 input[type="checkbox"].Inputbox:checked::before,
-.Inputcard>input[type="checkbox"]:checked::before {
+.Inputcard > input[type="checkbox"]:checked::before {
   --MARK_PATH: path("M 12.243495,4.073535 13.656318,5.486359 6.879517,12.263161 3.344,8.727609 4.7568179,7.314783 6.8795159,9.437514 Z");
 }
 
 input[type="radio"].Inputbox::before,
-.Inputcard>input[type="radio"]::before {
+.Inputcard > input[type="radio"]::before {
   --MARK_PATH: path("m 12.242641,3.75736 a 6,6 0 0 0 -8.485281,-10e-7 6,6 0 0 0 0,8.485282 6,6 0 0 0 8.48528,-1e-6 6,6 0 0 0 1e-6,-8.48528 z m -1.414214,1.414213 a 4,4 0 0 1 -10e-7,5.656854 4,4 0 0 1 -5.656852,0 4,4 0 0 1 -10e-7,-5.656855 4,4 0 0 1 5.656854,1e-6 z");
 }
 
 input[type="radio"].Inputbox:checked::before,
-.Inputcard>input[type="radio"]:checked::before {
+.Inputcard > input[type="radio"]:checked::before {
   --MARK_PATH: path("M 8,2 A 6,6 0 0 0 2,8 6,6 0 0 0 8,14 6,6 0 0 0 14,8 6,6 0 0 0 8,2 Z M 8,4 A 4,4 0 0 1 12,8 4,4 0 0 1 8,12 4,4 0 0 1 4,8 4,4 0 0 1 8,4 Z M 8,6 A 2,2 0 0 0 6,8 2,2 0 0 0 8,10 2,2 0 0 0 10,8 2,2 0 0 0 8,6 Z");
 }
 
@@ -271,14 +271,14 @@ input[type="number"].Inputbox:focus,
 input[type="password"].Inputbox:focus,
 input[type="text"].Inputbox:focus,
 textarea.Inputbox:focus,
-.Inputcard:hover>input[type="number"],
-.Inputcard:hover>input[type="password"],
-.Inputcard:hover>input[type="text"],
-.Inputcard:hover>textarea,
-.Inputcard>input[type="number"]:focus,
-.Inputcard>input[type="password"]:focus,
-.Inputcard>input[type="text"]:focus,
-.Inputcard>textarea:focus,
+.Inputcard:hover > input[type="number"],
+.Inputcard:hover > input[type="password"],
+.Inputcard:hover > input[type="text"],
+.Inputcard:hover > textarea,
+.Inputcard > input[type="number"]:focus,
+.Inputcard > input[type="password"]:focus,
+.Inputcard > input[type="text"]:focus,
+.Inputcard > textarea:focus,
 .Button:hover,
 .Button:focus,
 input[type="radio"].Inputbox:hover,

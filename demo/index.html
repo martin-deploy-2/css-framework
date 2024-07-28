@@ -23,14 +23,67 @@
         padding: 200px;
       }
 
-      body > * {
-        margin-top: 20px;
+      .StackPanel,
+      .StackPanel--vertical,
+      .StackPanel.--vertical {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: var(--SPACING_VERTICAL) var(--SPACING_HORIZONTAL);
       }
+
+      .StackPanel--horizontal,
+      .StackPanel.--horizontal {
+        flex-direction: row;
+      }
+
+      .StackPanel--reverse,
+      .StackPanel.--reverse {
+        flex-direction: column;
+      }
+
+      .StackPanel.--horizontal.--reverse,
+      .StackPanel--horizontal.--reverse,
+      .StackPanel.--horizontal.StackPanel--reverse,
+      .StackPanel--horizontal.StackPanel--reverse {
+        flex-direction: column-reverse;
+      }
+
+      .StackPanel--wrap,
+      .StackPanel.--wrap {
+        flex-wrap: wrap;
+      }
+
+      .StackPanel--arrange\:start,
+      .StackPanel.--arrange\:start {
+        justify-content: start;
+      }
+
+      .StackPanel--arrange\:center,
+      .StackPanel.--arrange\:center {
+        justify-content: center;
+      }
+
+      .StackPanel--arrange\:spaceAround,
+      .StackPanel.--arrange\:spaceAround {
+        justify-content: space-evenly;
+      }
+
+      .StackPanel--arrange\:spaceBetween,
+      .StackPanel.--arrange\:spaceBetween {
+        justify-content: space-between;
+      }
+
+      .StackPanel--arrange\:end,
+      .StackPanel.--arrange\:end {
+        justify-content: end;
+      }
+
 
 
     </style>
   </head>
-  <body>
+  <body class="StackPanel">
     <h1 class="H1">Heading 1</h1>
     <h2 class="H2">Heading 2</h2>
     <h3 class="H3">Heading 3</h3>
@@ -48,7 +101,7 @@
       <li>Laudantium harum.</li>
     </ul>
 
-    <ol class="List">
+    <ol class="List StackPanel">
       <li>
         <p class="P">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio
@@ -85,7 +138,7 @@
       </figcaption>
     </figure>
 
-    <label class="Inputcard">
+    <label class="Inputcard StackPanel">
       <span>Numbercard</span>
       <span style="display: block;">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
@@ -98,42 +151,42 @@
 
     <input class="Inputbox" type="number"/>
 
-    <label class="Inputcard">
+    <label class="Inputcard StackPanel">
       <span>Disabled numbercard</span>
       <input style="" type="number" disabled/>
     </label>
 
     <input class="Inputbox" type="number" disabled/>
 
-    <label class="Inputcard">
+    <label class="Inputcard StackPanel">
       <span>Passwordcard</span>
       <input style="" type="password"/>
     </label>
 
     <input class="Inputbox" type="password"/>
 
-    <label class="Inputcard">
+    <label class="Inputcard StackPanel">
       <span>Disabled passwordcard</span>
       <input style="" type="password" disabled/>
     </label>
 
     <input class="Inputbox" type="password" disabled/>
 
-    <label class="Inputcard">
+    <label class="Inputcard StackPanel">
       <span>Stringcard</span>
       <input style="" type="text"/>
     </label>
 
     <input class="Inputbox" type="text"/>
 
-    <label class="Inputcard">
+    <label class="Inputcard StackPanel">
       <span>Disabled stringcard</span>
       <input style="" type="text" disabled/>
     </label>
 
     <input class="Inputbox" type="text" disabled/>
 
-    <label class="Inputcard">
+    <label class="Inputcard StackPanel">
       <span>Textcard</span>
       <span style="display: block;">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
@@ -146,14 +199,14 @@
 
     <textarea class="Inputbox"></textarea>
 
-    <label class="Inputcard">
+    <label class="Inputcard StackPanel">
       <span>Disabled textcard</span>
       <textarea style="" disabled></textarea>
     </label>
 
     <textarea class="Inputbox" disabled></textarea>
 
-    <button class="Button">
+    <button class="Button StackPanel">
       <span>Button</span>
       <span style="display: block;">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
@@ -174,10 +227,10 @@
       <span>Disabled button</span>
     </button>
 
-    <label class="Inputcard">
+    <label class="Inputcard StackPanel">
       <input type="checkbox"/>
       <span>Checkcard</span>
-      <span style="display: block; margin-top: var(--SPACING_VERTICAL);">
+      <span style="display: block;">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
         recusandae pariatur magni, facilis reiciendis iusto. Tenetur ipsum quam
         blanditiis accusantium eius laudantium laborum error illo consectetur.
@@ -203,10 +256,10 @@
 
     <input class="Inputbox" type="checkbox" disabled/>
 
-    <label class="Inputcard">
+    <label class="Inputcard StackPanel">
       <input type="radio" name="09c342d8"/>
       <span>Radiocard</span>
-      <span style="display: block; margin-top: var(--SPACING_VERTICAL);">
+      <span style="display: block;">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
         recusandae pariatur magni, facilis reiciendis iusto. Tenetur ipsum quam
         blanditiis accusantium eius laudantium laborum error illo consectetur.
