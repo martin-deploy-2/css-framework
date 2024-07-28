@@ -80,3 +80,55 @@
 .List ::marker {
   color: var(--COLOR_STROKE);
 }
+
+.Table {
+  border-collapse: collapse;
+}
+
+.Table>caption {
+  text-align: center;
+  caption-side: top;
+  margin-bottom: var(--SPACING_VERTICAL);
+}
+
+.Table>thead,
+.Table>tfoot {
+  background: var(--COLOR_FILL);
+}
+
+.Table>thead {
+  box-shadow:
+    0 calc(var(--STROKE_WIDTH) / 2) 0 0 var(--COLOR_STROKE),
+    inset 0 calc(-1 * var(--STROKE_WIDTH) / 2) 0 0 var(--COLOR_STROKE);
+}
+
+.Table>tfoot {
+  box-shadow:
+    inset 0 calc(var(--STROKE_WIDTH) / 2) 0 0 var(--COLOR_STROKE),
+    0 calc(-1 * var(--STROKE_WIDTH) / 2) 0 0 var(--COLOR_STROKE);
+}
+
+.Table>tbody {}
+
+.Table th {
+  font-weight: 700;
+}
+
+.Table th[scope="row"] {}
+
+.Table th,
+.Table td {
+  padding: calc(var(--SPACING_VERTICAL) + var(--STROKE_WIDTH) / 2) calc(var(--SPACING_HORIZONTAL) + var(--STROKE_WIDTH) / 2);
+}
+
+.Table--sticky>thead,
+.Table.--sticky>thead {
+  position: sticky;
+  top: 0;
+}
+
+.Table--sticky>tfoot,
+.Table.--sticky>tfoot {
+  position: sticky;
+  bottom: 0;
+}

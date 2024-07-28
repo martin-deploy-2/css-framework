@@ -28,6 +28,8 @@ html {
 
 body {
   min-height: 100%;
+  background: var(--COLOR_FILL);
+  color: var(--COLOR_TEXT);
 }
 
 

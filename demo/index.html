@@ -9,7 +9,7 @@
       @import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap");
       @import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-      body {
+      :root {
         --FONT_SANS_FAMILY: "Encode Sans Semi Condensed", sans-serif;
         --FONT_SANS_LINE: 1.3em;
         --FONT_SANS_SIZE: 16px;
@@ -20,70 +20,62 @@
         --FONT_MONO_SIZE: 14px;
         --FONT_MONO_WEIGHT: 500;
 
+        --SPACING_HORIZONTAL: 15px;
+        --SPACING_VERTICAL: 15px;
+      }
+
+      .BOW {
+        --COLOR_INTERACTIVE_OUTLINE: #F0F;
+        --COLOR_INTERACTIVE_SHADOW: #ADD;
+
+        --COLOR_TEXT: #000;
+        --COLOR_MARK: #FFF;
+        --COLOR_STROKE: #000;
+        --COLOR_FILL: #EEE;
+
+        --COLOR_INTERACTIVE_DISABLED_TEXT: #000;
+        --COLOR_INTERACTIVE_DISABLED_MARK: #EEE;
+        --COLOR_INTERACTIVE_DISABLED_STROKE: #000;
+        --COLOR_INTERACTIVE_DISABLED_FILL: #EEE;
+
+        --COLOR_INTERACTIVE_BLURRED_TEXT: #000;
+        --COLOR_INTERACTIVE_BLURRED_MARK: #FFF;
+        --COLOR_INTERACTIVE_BLURRED_STROKE: #000;
+        --COLOR_INTERACTIVE_BLURRED_FILL: #FFF;
+
+        --COLOR_INTERACTIVE_FOCUSED_TEXT: #000;
+        --COLOR_INTERACTIVE_FOCUSED_MARK: #FFF;
+        --COLOR_INTERACTIVE_FOCUSED_STROKE: #000;
+        --COLOR_INTERACTIVE_FOCUSED_FILL: #FFF;
+
+        --COLOR_INTERACTIVE_PRESSED_TEXT: #000;
+        --COLOR_INTERACTIVE_PRESSED_MARK: #FFF;
+        --COLOR_INTERACTIVE_PRESSED_STROKE: #000;
+        --COLOR_INTERACTIVE_PRESSED_FILL: #EEE;
+
+        --COLOR_INTERACTIVE_CHECKED_BLURRED_TEXT: #000;
+        --COLOR_INTERACTIVE_CHECKED_BLURRED_MARK: #FFF;
+        --COLOR_INTERACTIVE_CHECKED_BLURRED_STROKE: #000;
+        --COLOR_INTERACTIVE_CHECKED_BLURRED_FILL: #EFE;
+
+        --COLOR_INTERACTIVE_CHECKED_FOCUSED_TEXT: #000;
+        --COLOR_INTERACTIVE_CHECKED_FOCUSED_MARK: #FFF;
+        --COLOR_INTERACTIVE_CHECKED_FOCUSED_STROKE: #000;
+        --COLOR_INTERACTIVE_CHECKED_FOCUSED_FILL: #EFE;
+
+        --COLOR_INTERACTIVE_CHECKED_PRESSED_TEXT: #000;
+        --COLOR_INTERACTIVE_CHECKED_PRESSED_MARK: #FFF;
+        --COLOR_INTERACTIVE_CHECKED_PRESSED_STROKE: #000;
+        --COLOR_INTERACTIVE_CHECKED_PRESSED_FILL: #EEE;
+      }
+
+      body {
         padding: 200px;
       }
 
-      .StackPanel,
-      .StackPanel--vertical,
-      .StackPanel.--vertical {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        gap: var(--SPACING_VERTICAL) var(--SPACING_HORIZONTAL);
-      }
-
-      .StackPanel--horizontal,
-      .StackPanel.--horizontal {
-        flex-direction: row;
-      }
-
-      .StackPanel--reverse,
-      .StackPanel.--reverse {
-        flex-direction: column;
-      }
-
-      .StackPanel.--horizontal.--reverse,
-      .StackPanel--horizontal.--reverse,
-      .StackPanel.--horizontal.StackPanel--reverse,
-      .StackPanel--horizontal.StackPanel--reverse {
-        flex-direction: column-reverse;
-      }
-
-      .StackPanel--wrap,
-      .StackPanel.--wrap {
-        flex-wrap: wrap;
-      }
-
-      .StackPanel--arrange\:start,
-      .StackPanel.--arrange\:start {
-        justify-content: start;
-      }
-
-      .StackPanel--arrange\:center,
-      .StackPanel.--arrange\:center {
-        justify-content: center;
-      }
-
-      .StackPanel--arrange\:spaceAround,
-      .StackPanel.--arrange\:spaceAround {
-        justify-content: space-evenly;
-      }
-
-      .StackPanel--arrange\:spaceBetween,
-      .StackPanel.--arrange\:spaceBetween {
-        justify-content: space-between;
-      }
-
-      .StackPanel--arrange\:end,
-      .StackPanel.--arrange\:end {
-        justify-content: end;
-      }
-
-
-
     </style>
   </head>
-  <body class="StackPanel">
+  <body class="StackPanel BOW">
     <h1 class="H1">Heading 1</h1>
     <h2 class="H2">Heading 2</h2>
     <h3 class="H3">Heading 3</h3>
@@ -124,6 +116,47 @@
         </p>
       </li>
     </ol>
+
+    <table class="Table --sticky">
+      <caption>
+        Front-end web developer course 2021
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Person</th>
+          <th scope="col">Most interest in</th>
+          <th scope="col">Age</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Chris</th>
+          <td>HTML tables</td>
+          <td>22</td>
+        </tr>
+        <tr>
+          <th scope="row">Dennis</th>
+          <td>Web accessibility</td>
+          <td>45</td>
+        </tr>
+        <tr>
+          <th scope="row">Sarah</th>
+          <td>JavaScript frameworks</td>
+          <td>29</td>
+        </tr>
+        <tr>
+          <th scope="row">Karen</th>
+          <td>Web performance</td>
+          <td>36</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th scope="row" colspan="2">Average age</th>
+          <td>33</td>
+        </tr>
+      </tfoot>
+    </table>
 
     <figure class="Quote">
       <blockquote cite="https://www.huxley.net/bnw/four.html">

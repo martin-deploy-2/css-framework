@@ -1,0 +1,55 @@
+.StackPanel,
+.StackPanel--vertical,
+.StackPanel.--vertical {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: var(--SPACING_VERTICAL) var(--SPACING_HORIZONTAL);
+}
+
+.StackPanel--horizontal,
+.StackPanel.--horizontal {
+  flex-direction: row;
+}
+
+.StackPanel--reverse,
+.StackPanel.--reverse {
+  flex-direction: column;
+}
+
+.StackPanel.--horizontal.--reverse,
+.StackPanel--horizontal.--reverse,
+.StackPanel.--horizontal.StackPanel--reverse,
+.StackPanel--horizontal.StackPanel--reverse {
+  flex-direction: column-reverse;
+}
+
+.StackPanel--wrap,
+.StackPanel.--wrap {
+  flex-wrap: wrap;
+}
+
+.StackPanel--arrange\:start,
+.StackPanel.--arrange\:start {
+  justify-content: start;
+}
+
+.StackPanel--arrange\:center,
+.StackPanel.--arrange\:center {
+  justify-content: center;
+}
+
+.StackPanel--arrange\:spaceAround,
+.StackPanel.--arrange\:spaceAround {
+  justify-content: space-evenly;
+}
+
+.StackPanel--arrange\:spaceBetween,
+.StackPanel.--arrange\:spaceBetween {
+  justify-content: space-between;
+}
+
+.StackPanel--arrange\:end,
+.StackPanel.--arrange\:end {
+  justify-content: end;
+}
