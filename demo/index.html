@@ -20,11 +20,11 @@
         --FONT_MONO_SIZE: 14px;
         --FONT_MONO_WEIGHT: 500;
 
-        --SPACING_HORIZONTAL: 15px;
-        --SPACING_VERTICAL: 15px;
+        --SPACING_HORIZONTAL_UNIT: 15px;
+        --SPACING_VERTICAL_UNIT: 15px;
       }
 
-      .BOW {
+      .--blackOnWhite {
         --COLOR_INTERACTIVE_OUTLINE: #F0F;
         --COLOR_INTERACTIVE_SHADOW: #ADD;
 
@@ -69,13 +69,9 @@
         --COLOR_INTERACTIVE_CHECKED_PRESSED_FILL: #EEE;
       }
 
-      body {
-        padding: 200px;
-      }
-
     </style>
   </head>
-  <body class="StackPanel BOW">
+  <body class="StackPanel --pad:4 --blackOnWhite">
     <h1 class="H1">Heading 1</h1>
     <h2 class="H2">Heading 2</h2>
     <h3 class="H3">Heading 3</h3>

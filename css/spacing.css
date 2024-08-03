@@ -1,0 +1,65 @@
+.--compact\:4 {
+  --SPACING_HORIZONTAL: calc(var(--SPACING_HORIZONTAL_UNIT) * 0.00);
+  --SPACING_VERTICAL: calc(var(--SPACING_VERTICAL_UNIT) * 0.00);
+}
+
+.--compact\:3 {
+  --SPACING_HORIZONTAL: calc(var(--SPACING_HORIZONTAL_UNIT) * 0.25);
+  --SPACING_VERTICAL: calc(var(--SPACING_VERTICAL_UNIT) * 0.25);
+}
+
+.--compact\:2 {
+  --SPACING_HORIZONTAL: calc(var(--SPACING_HORIZONTAL_UNIT) * 0.50);
+  --SPACING_VERTICAL: calc(var(--SPACING_VERTICAL_UNIT) * 0.50);
+}
+
+.--compact\:1 {
+  --SPACING_HORIZONTAL: calc(var(--SPACING_HORIZONTAL_UNIT) * 0.75);
+  --SPACING_VERTICAL: calc(var(--SPACING_VERTICAL_UNIT) * 0.75);
+}
+
+.--compact\:0,
+.--cozy\:0 {
+  --SPACING_HORIZONTAL: var(--SPACING_HORIZONTAL_UNIT);
+  --SPACING_VERTICAL: var(--SPACING_VERTICAL_UNIT);
+}
+
+.--cozy\:1 {
+  --SPACING_HORIZONTAL: calc(var(--SPACING_HORIZONTAL_UNIT) * 1.25);
+  --SPACING_VERTICAL: calc(var(--SPACING_VERTICAL_UNIT) * 1.25);
+}
+
+.--cozy\:2 {
+  --SPACING_HORIZONTAL: calc(var(--SPACING_HORIZONTAL_UNIT) * 1.50);
+  --SPACING_VERTICAL: calc(var(--SPACING_VERTICAL_UNIT) * 1.50);
+}
+
+.--cozy\:3 {
+  --SPACING_HORIZONTAL: calc(var(--SPACING_HORIZONTAL_UNIT) * 1.75);
+  --SPACING_VERTICAL: calc(var(--SPACING_VERTICAL_UNIT) * 1.75);
+}
+
+.--cozy\:4 {
+  --SPACING_HORIZONTAL: calc(var(--SPACING_HORIZONTAL_UNIT) * 2.00);
+  --SPACING_VERTICAL: calc(var(--SPACING_VERTICAL_UNIT) * 2.00);
+}
+
+.--pad\:0 {
+  padding: 0 0;
+}
+
+.--pad\:1 {
+  padding: var(--SPACING_VERTICAL) var(--SPACING_HORIZONTAL);
+}
+
+.--pad\:2 {
+  padding: calc(var(--SPACING_VERTICAL) * 2) calc(var(--SPACING_HORIZONTAL) * 2);
+}
+
+.--pad\:3 {
+  padding: calc(var(--SPACING_VERTICAL) * 4) calc(var(--SPACING_HORIZONTAL) * 4);
+}
+
+.--pad\:4 {
+  padding: calc(var(--SPACING_VERTICAL) * 8) calc(var(--SPACING_HORIZONTAL) * 8);
+}
