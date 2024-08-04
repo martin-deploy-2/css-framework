@@ -3,10 +3,19 @@
 .ReadingPanel {
 }
 
-.ReadingPanel > * {
-  width: 100%;
+.ReadingPanel > *:not(.horizontalScroller) {
+  /* width: 100%; */
   /* max-width: 35rem; */
   padding: 0 calc((100% - 35rem) / 2);
+}
+
+.ReadingPanel .horizontalScroller {
+  overflow-x: auto;
+}
+
+.ReadingPanel .horizontalScroller--noWrap *,
+.ReadingPanel .horizontalScroller.--noWrap * {
+  text-wrap: nowrap;
 }
 
 /* HEADING ****************************************************************** */
@@ -126,14 +135,13 @@ ol.List > li,
 .List--letters > li,
 .List.--letters > li {
   counter-increment: ORDERED_LIST;
-  padding-left: calc(5px + var(--SPACING_HORIZONTAL));
 }
 
 ol.List > li::before,
 .List ol > li::before,
 .List--letters > li::before,
 .List.--letters > li::before {
-  padding-right: var(--SPACING_HORIZONTAL);
+  padding-right: calc(var(--SPACING_HORIZONTAL) - 3px);
   font-family: var(--FONT_MONO_FAMILY);
   font-size: 0.8em;
   font-weight: calc(var(--FONT_SANS_WEIGHT) + 300);
@@ -158,39 +166,120 @@ ol.List > li::after,
   display: none;
 }
 
+/* QUOTATIONS *************************************************************** */
 
-
-
-
-
-
-
-.Quote {}
+.Quote {
+}
 
 .Quote > blockquote {
-  font-style: italic;
   padding: var(--SPACING_VERTICAL) var(--SPACING_HORIZONTAL);
+  background: var(--COLOR_HIGHLIGHTED_FILL);
   border: calc(3 * var(--STROKE_WIDTH)) var(--COLOR_STROKE);
   border-style: none double;
+  font-style: italic;
 }
 
 .Quote > blockquote > :first-child::before {
   content: "« ";
+  color: var(--COLOR_DECORATION);
 }
 
 .Quote > blockquote > :last-child::after {
-  content: " »"
+  content: " »";
+  color: var(--COLOR_DECORATION);
 }
 
 .Quote > figcaption {
   margin: var(--SPACING_VERTICAL) calc(var(--SPACING_HORIZONTAL) + 3 * var(--STROKE_WIDTH)) 0;
   text-align: right;
+  font-size: 0.85em;
+  font-weight: calc(var(--FONT_SANS_WEIGHT) + 100);
+  color: var(--COLOR_DECORATION);
 }
 
 .Quote > figcaption > :first-child::before {
   content: "— "
 }
 
+/* TABLE ******************************************************************** */
+
+.Table {
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+.Table > caption {
+  text-align: center;
+  caption-side: bottom;
+  margin-top: var(--SPACING_VERTICAL);
+  font-style: italic;
+  font-size: 0.85em;
+  font-weight: calc(var(--FONT_SANS_WEIGHT) + 100);
+}
+
+.Table > thead,
+.Table > tfoot {
+  background: var(--COLOR_HIGHLIGHTED_FILL);
+}
+
+.Table > thead {
+  box-shadow: inset 0 calc(-1 * var(--STROKE_WIDTH)) 0 0 var(--COLOR_STROKE);
+}
+
+.Table > thead th,
+.Table > thead td {
+  padding-bottom: calc(var(--SPACING_VERTICAL) + var(--STROKE_WIDTH));
+  vertical-align: bottom;
+}
+
+.Table > tfoot {
+  box-shadow: inset 0 var(--STROKE_WIDTH) 0 0 var(--COLOR_STROKE);
+}
+
+.Table > tfoot th,
+.Table > tfoot td {
+  padding-top: calc(var(--SPACING_VERTICAL) + var(--STROKE_WIDTH));
+}
+
+.Table > tbody {
+}
+
+.Table>tbody tr:hover {
+  background: var(--COLOR_INTERACTIVE_FOCUSED_FILL);
+}
+
+.Table th {
+  font-weight: calc(var(--FONT_SANS_WEIGHT) + 200);
+}
+
+.Table th[scope="row"] {}
+
+.Table th,
+.Table td {
+  padding: var(--SPACING_VERTICAL) var(--SPACING_HORIZONTAL);
+  vertical-align: top;
+}
+
+.Table--sticky > thead,
+.Table.--sticky > thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.Table--sticky > tfoot,
+.Table.--sticky > tfoot {
+  position: sticky;
+  bottom: 0;
+}
+
+
+
+
+
+
+
+/* i, b, u, s, em, strong, mark */
 .Link {
   --COLOR_TEXT: var(--COLOR_INTERACTIVE_BLURRED_TEXT);
 
@@ -211,62 +300,4 @@ ol.List > li::after,
   --COLOR_INTERACTIVE_BLURRED_TEXT: var(--COLOR_INTERACTIVE_CHECKED_BLURRED_TEXT);
   --COLOR_INTERACTIVE_FOCUSED_TEXT: var(--COLOR_INTERACTIVE_CHECKED_FOCUSED_TEXT);
   --COLOR_INTERACTIVE_PRESSED_TEXT: var(--COLOR_INTERACTIVE_CHECKED_PRESSED_TEXT);
-}
-
-.Table {
-  border-collapse: collapse;
-}
-
-.Table > caption {
-  text-align: center;
-  caption-side: top;
-  margin-bottom: var(--SPACING_VERTICAL);
-}
-
-.Table > thead,
-.Table > tfoot {
-  background: var(--COLOR_FILL);
-}
-
-.Table > thead {
-  box-shadow: inset 0 calc(-1 * var(--STROKE_WIDTH)) 0 0 var(--COLOR_STROKE);
-}
-
-.Table > thead th,
-.Table > thead td {
-  padding-bottom: calc(var(--SPACING_VERTICAL) + var(--STROKE_WIDTH));
-}
-
-.Table > tfoot {
-  box-shadow: inset 0 var(--STROKE_WIDTH) 0 0 var(--COLOR_STROKE);
-}
-
-.Table > tfoot th,
-.Table > tfoot td {
-  padding-top: calc(var(--SPACING_VERTICAL) + var(--STROKE_WIDTH));
-}
-
-.Table > tbody {}
-
-.Table th {
-  font-weight: 700;
-}
-
-.Table th[scope="row"] {}
-
-.Table th,
-.Table td {
-  padding: var(--SPACING_VERTICAL) var(--SPACING_HORIZONTAL);
-}
-
-.Table--sticky > thead,
-.Table.--sticky > thead {
-  position: sticky;
-  top: 0;
-}
-
-.Table--sticky > tfoot,
-.Table.--sticky > tfoot {
-  position: sticky;
-  bottom: 0;
 }

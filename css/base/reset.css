@@ -5,12 +5,13 @@
   padding: 0;
   border: none;
   outline: none;
+  text-align: inherit;
 }
 
 :root {
   font-style: normal;
   text-decoration: none;
-  text-align: start;
+  text-align: left;
   background: var(--COLOR_FILL);
   color: var(--COLOR_TEXT);
 }
