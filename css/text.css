@@ -34,11 +34,11 @@
   border-style: none double;
 }
 
-.Quote > blockquote >  :first-child::before {
+.Quote > blockquote > :first-child::before {
   content: "« ";
 }
 
-.Quote > blockquote >  :last-child::after {
+.Quote > blockquote > :last-child::after {
   content: " »"
 }
 
@@ -85,30 +85,36 @@
   border-collapse: collapse;
 }
 
-.Table>caption {
+.Table > caption {
   text-align: center;
   caption-side: top;
   margin-bottom: var(--SPACING_VERTICAL);
 }
 
-.Table>thead,
-.Table>tfoot {
+.Table > thead,
+.Table > tfoot {
   background: var(--COLOR_FILL);
 }
 
-.Table>thead {
-  box-shadow:
-    0 calc(var(--STROKE_WIDTH) / 2) 0 0 var(--COLOR_STROKE),
-    inset 0 calc(-1 * var(--STROKE_WIDTH) / 2) 0 0 var(--COLOR_STROKE);
+.Table > thead {
+  box-shadow: inset 0 calc(-1 * var(--STROKE_WIDTH)) 0 0 var(--COLOR_STROKE);
 }
 
-.Table>tfoot {
-  box-shadow:
-    inset 0 calc(var(--STROKE_WIDTH) / 2) 0 0 var(--COLOR_STROKE),
-    0 calc(-1 * var(--STROKE_WIDTH) / 2) 0 0 var(--COLOR_STROKE);
+.Table > thead th,
+.Table > thead td {
+  padding-bottom: calc(var(--SPACING_VERTICAL) + var(--STROKE_WIDTH));
 }
 
-.Table>tbody {}
+.Table > tfoot {
+  box-shadow: inset 0 var(--STROKE_WIDTH) 0 0 var(--COLOR_STROKE);
+}
+
+.Table > tfoot th,
+.Table > tfoot td {
+  padding-top: calc(var(--SPACING_VERTICAL) + var(--STROKE_WIDTH));
+}
+
+.Table > tbody {}
 
 .Table th {
   font-weight: 700;
@@ -118,17 +124,17 @@
 
 .Table th,
 .Table td {
-  padding: calc(var(--SPACING_VERTICAL) + var(--STROKE_WIDTH) / 2) calc(var(--SPACING_HORIZONTAL) + var(--STROKE_WIDTH) / 2);
+  padding: var(--SPACING_VERTICAL) var(--SPACING_HORIZONTAL);
 }
 
-.Table--sticky>thead,
-.Table.--sticky>thead {
+.Table--sticky > thead,
+.Table.--sticky > thead {
   position: sticky;
   top: 0;
 }
 
-.Table--sticky>tfoot,
-.Table.--sticky>tfoot {
+.Table--sticky > tfoot,
+.Table.--sticky > tfoot {
   position: sticky;
   bottom: 0;
 }
