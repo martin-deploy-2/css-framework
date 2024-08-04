@@ -1,10 +1,13 @@
+.StackPanel {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--SPACING_VERTICAL) var(--SPACING_HORIZONTAL);
+}
+
 .StackPanel,
 .StackPanel--vertical,
 .StackPanel.--vertical {
-  display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
-  gap: var(--SPACING_VERTICAL) var(--SPACING_HORIZONTAL);
 }
 
 .StackPanel--horizontal,
@@ -29,6 +32,7 @@
   flex-wrap: wrap;
 }
 
+.StackPanel,
 .StackPanel--arrange\:start,
 .StackPanel.--arrange\:start {
   justify-content: start;
@@ -47,6 +51,11 @@
 .StackPanel--arrange\:spaceBetween,
 .StackPanel.--arrange\:spaceBetween {
   justify-content: space-between;
+}
+
+.StackPanel--arrange\:stretch > *,
+.StackPanel.--arrange\:stretch > * {
+  flex-grow: 1;
 }
 
 .StackPanel--arrange\:end,

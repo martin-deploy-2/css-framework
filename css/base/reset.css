@@ -5,13 +5,6 @@
   padding: 0;
   border: none;
   outline: none;
-  font-family: var(--FONT_SANS_FAMILY);
-  line-height: var(--FONT_SANS_LINE);
-  font-size: var(--FONT_SANS_SIZE);
-  font-weight: var(--FONT_SANS_WEIGHT);
-  font-style: inherit;
-  text-decoration: inherit;
-  text-align: inherit;
 }
 
 :root {
@@ -30,9 +23,10 @@ body {
   min-height: 100%;
   background: var(--COLOR_FILL);
   color: var(--COLOR_TEXT);
+
+  font-family: var(--FONT_SANS_FAMILY);
+  font-size: var(--FONT_SANS_SIZE);
+  font-weight: var(--FONT_SANS_WEIGHT);
 }
-
-
-
 
 /* S'that reset enough for you, now? You'll behave, now? Good. */

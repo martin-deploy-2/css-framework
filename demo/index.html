@@ -30,6 +30,7 @@
 
         --COLOR_TEXT: #000;
         --COLOR_MARK: #FFF;
+        --COLOR_DECORATION: #000;
         --COLOR_STROKE: #000;
         --COLOR_FILL: #EEE;
 
@@ -71,47 +72,144 @@
 
     </style>
   </head>
-  <body class="StackPanel --pad:4 --blackOnWhite">
-    <h1 class="H1">Heading 1</h1>
-    <h2 class="H2">Heading 2</h2>
-    <h3 class="H3">Heading 3</h3>
-    <h4 class="H4">Heading 4</h4>
+  <body class="ReadingPanel StackPanel --blackOnWhite">
+    <h1 class="H1">
+      <span>Heading 1</span>
+      <small>Sub-Heading 1</small>
+    </h1>
 
-    <p class="P">
+    <h2 class="H2">
+      <span>Heading 2</span>
+      <small>Sub-Heading 2</small>
+    </h2>
+
+    <h3 class="H3">
+      <span>Heading 3</span>
+      <small>Sub-Heading 3</small>
+    </h3>
+
+    <h4 class="H4">
+      <span>Heading 4</span>
+      <small>Sub-Heading 4</small>
+    </h4>
+
+    <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium harum
       modi exercitationem, deserunt nesciunt hic omnis ab iure in recusandae
       adipisci voluptatem quos? Incidunt amet ducimus officiis itaque fuga poro?
+    </p>
+
+    <hr class="Separator" />
+
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima,
+      perferendis nostrum sit, alias obcaecati quos dolor esse non fuga
+      doloremque provident corporis ipsam ducimus blanditiis accusantium, quia
+      aliquam porro consequuntur!
     </p>
 
     <ul class="List">
       <li>Lorem ipsum dolor sit amet.</li>
       <li>Consectetur adipisicing elit.</li>
       <li>Laudantium harum.</li>
+      <li>
+        <span>Nested:</span>
+        <ul>
+          <li>Lorem ipsum dolor sit amet.</li>
+          <li>Consectetur adipisicing elit.</li>
+          <li>Laudantium harum.</li>
+          <li>
+            <span>Nested:</span>
+            <ul>
+              <li>Lorem ipsum dolor sit amet.</li>
+              <li>Consectetur adipisicing elit.</li>
+              <li>Laudantium harum.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
     </ul>
 
-    <ol class="List StackPanel">
-      <li>
-        <p class="P">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio
-          ratione magni dolore quas molestiae at animi, culpa maiores libero
-          enim aspernatur quae itaque?
-        </p>
-      </li>
-      <li>
-        <p class="P">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam
-          doloribus iusto cumque deserunt nihil. Explicabo placeat tempore sed
-          officia beatae nobis voluptatum dignissimos.
-        </p>
-      </li>
-      <li>
-        <p class="P">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ex,
-          alias quibusdam officia, harum aliquid modi iste ratione adipisci
-          repudiandae animi.
-        </p>
-      </li>
+    <ol class="List">
+      <li>Lorem ipsum dolor sit amet elit.</li>
+      <li>Dolores et blanditiis temporibus nemo ipsam in.</li>
+      <li>Itaque deserunt eius provident facere quos.</li>
     </ol>
+
+    <ul class="List --stack">
+      <li>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam
+          quod voluptatum blanditiis omnis.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum eum
+          error animi modi possimus exercitationem.
+        </p>
+      </li>
+      <li>
+        <ul class="List">
+          <li>Lorem ipsum dolor sit amet.</li>
+          <li>Consectetur adipisicing elit.</li>
+          <li>Laudantium harum.</li>
+        </ul>
+        <p>
+          Minima, deleniti corporis ad blanditiis totam accusamus aliquid a
+          voluptatem officiis dolorem at maiores! Error, sit reiciendis.
+        </p>
+      </li>
+      <li>
+        <p>Nested:</p>
+        <ul class="List --stack">
+          <li>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam
+              quod voluptatum blanditiis omnis.
+            </p>
+          </li>
+          <li>
+            <p>Nested:</p>
+            <ul class="List --stack">
+              <li>
+                <p>
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Quisquam quod voluptatum blanditiis omnis.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Minima, deleniti corporis ad blanditiis totam accusamus
+                  aliquid a voluptatem officiis dolorem at maiores! Error, sit
+                  reiciendis.
+                </p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <ul class="List --letters">
+      <li>Lorem ipsum dolor sit amet elit.</li>
+      <li>Dolores et blanditiis temporibus nemo ipsam in.</li>
+      <li>Itaque deserunt eius provident facere quos.</li>
+      <li>
+        <span>Nested:</span>
+        <ul>
+          <li>Lorem ipsum dolor sit amet elit.</li>
+          <li>Dolores et blanditiis temporibus nemo ipsam in.</li>
+          <li>Itaque deserunt eius provident facere quos.</li>
+          <li>
+            <span>Nested:</span>
+            <ol>
+              <li>Lorem ipsum dolor sit amet elit.</li>
+              <li>Dolores et blanditiis temporibus nemo ipsam in.</li>
+              <li>Itaque deserunt eius provident facere quos.</li>
+            </ol>
+          </li>
+        </ul>
+      </li>
+    </ul>
 
     <table class="Table --sticky">
       <caption>
@@ -166,7 +264,7 @@
         <cite><a class="Link" href="https://www.huxley.net/bnw/four.html">Brave New World</a></cite>
       </figcaption>
     </figure>
-
+<!--
     <label class="Inputcard StackPanel">
       <span>Numbercard</span>
       <span style="display: block;">
@@ -312,7 +410,7 @@
       <span>Disabled radiocard</span>
     </label>
 
-    <input class="Inputbox" type="radio" name="09c342d8" disabled/>
+    <input class="Inputbox" type="radio" name="09c342d8" disabled/> -->
 
   </body>
 </html>
