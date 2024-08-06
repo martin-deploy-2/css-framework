@@ -46,6 +46,26 @@
   font-weight: calc(var(--FONT_SANS_WEIGHT) - 100);
 }
 
+.H1.--bold,
+.H1--bold {
+  font-weight: calc(var(--FONT_SANS_WEIGHT) + 100);
+}
+
+.H2.--bold,
+.H2--bold {
+  font-weight: calc(var(--FONT_SANS_WEIGHT) + 100);
+}
+
+.H3.--bold,
+.H3--bold {
+  font-weight: calc(var(--FONT_SANS_WEIGHT) + 200);
+}
+
+.H4.--bold,
+.H4--bold {
+  font-weight: calc(var(--FONT_SANS_WEIGHT) + 200);
+}
+
 /* SUB-HEADING ************************************************************** */
 
 .H1 > small,
@@ -73,6 +93,25 @@
   font-weight: calc(var(--FONT_SANS_WEIGHT) + 100);
 }
 
+.H1.--bold > small,
+.H1--bold > small {
+  font-weight: calc(var(--FONT_SANS_WEIGHT) + 200);
+}
+
+.H2.--bold > small,
+.H2--bold > small {
+  font-weight: calc(var(--FONT_SANS_WEIGHT) + 200);
+}
+
+.H3.--bold > small,
+.H3--bold > small {
+  font-weight: calc(var(--FONT_SANS_WEIGHT) + 300);
+}
+
+.H4.--bold > small,
+.H4--bold > small {
+  font-weight: calc(var(--FONT_SANS_WEIGHT) + 400);
+}
 
 /* SEPARATOR RULER ********************************************************** */
 
